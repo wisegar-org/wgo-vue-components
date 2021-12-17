@@ -1,1 +1,1 @@
-# wgo-vue-components
+# wgo-vue-components opengar-ui
