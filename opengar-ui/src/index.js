@@ -10,7 +10,7 @@ function extendConf(conf) {
   debugger;
   // make sure my-component boot file is registered
   conf.boot.push(
-    "@wisegar-org/quasar-app-extension-opengar-ui/src/boot/register-my-button.js"
+    "~@wisegar-org/quasar-app-extension-opengar-ui/src/boot/register-my-button.js"
   );
 
   // make sure boot & component files get transpiled
