@@ -1,0 +1,15 @@
+{
+  "name": "wgo-vue-components",
+  "version": "0.0.1",
+  "description": "Vue component source code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "vue-property-decorator": "^9.1.2"
+  }
+}

@@ -11,7 +11,7 @@ function extendConf(conf) {
   conf.boot.push(
     "~@wisegar-org/quasar-app-extension-opengar-ui/src/boot/register.js"
   );
-
+  debugger;
   // make sure app extension files & ui packages get transpiled
   conf.build.transpileDependencies.push(
     /quasar-app-extension-opengar-ui[\\/]src/
