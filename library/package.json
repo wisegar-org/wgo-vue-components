@@ -1,5 +1,5 @@
 {
-  "name": "wgo-vue-components",
+  "name": "@wisegar-org/wgo-vue-components",
   "version": "0.0.1",
   "description": "Vue component source code",
   "main": "index.js",
