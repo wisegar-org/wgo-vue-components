@@ -1,5 +1,5 @@
 <template>
-  <div><q-btn label="BUTTOMMM" @click="onButtonClick" /></div>
+  <div><q-btn label="ButtoM" @click="onButtonClick" /></div>
 </template>
 
 <script lang="js" src="./MyButtom.js"></script>

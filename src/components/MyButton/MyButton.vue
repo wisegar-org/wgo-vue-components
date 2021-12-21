@@ -1,16 +1,7 @@
 <template>
   <div>
-    <q-btn label="BUTTON" @click="alertClick" />
+    <q-btn label="ButtoN" @click="alertClick" />
   </div>
 </template>
 
-<script>
-export default {
-  name: "MyButton",
-  methods: {
-    alertClick() {
-      alert("algo");
-    },
-  },
-};
-</script>
+<script lang="js" src="MyButton.js"></script>
