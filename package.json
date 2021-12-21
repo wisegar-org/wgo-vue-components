@@ -8,6 +8,7 @@
   "scripts": {
     "start": "nodemon",
     "version": "node ./scripts/build.js && tsc",
+    "publish": "npm version prerelease && npm publish",
     "test": "echo \"No test specified\" && exit 0"
   },
   "repository": {
