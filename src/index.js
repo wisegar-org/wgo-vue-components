@@ -8,7 +8,7 @@
  */
 function extendConf(conf) {
     // make sure my-component boot file is registered
-    conf.boot.push("~@wisegar-org/quasar-app-extension-opengar-ui/src/boot/register-my-button.js");
+    conf.boot.push("~@wisegar-org/quasar-app-extension-opengar-ui/src/boot/register.js");
     // make sure boot & component files get transpiled
     conf.build.transpileDependencies.push(/@wisegar-org\/quasar-app-extension-opengar-ui[\\/]src/);
     // make sure my-component css goes through webpack to avoid ssr issues
