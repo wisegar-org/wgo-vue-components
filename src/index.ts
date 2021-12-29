@@ -9,17 +9,17 @@
 function extendConf(conf: any) {
   // make sure my-component boot file is registered
   conf.boot.push(
-    "~@wisegar-org/quasar-app-extension-wgo-vue-components/src/boot/register.js"
+    "~@wisegar-org/quasar-app-extension-wgo-vue-components/build/boot/register.js"
   );
 
   // make sure boot & component files get transpiled
   conf.build.transpileDependencies.push(
-    /@wisegar-org\/quasar-app-extension-wgo-vue-components[\\/]src/
+    /@wisegar-org\/quasar-app-extension-wgo-vue-components[\\/]build/
   );
 
   // make sure my-component css goes through webpack to avoid ssr issues
   // conf.css.push(
-  //   "~@wisegar-org/quasar-app-extension-wgo-vue-components/src/component/MyComponent.sass"
+  //   "~@wisegar-org/quasar-app-extension-wgo-vue-components/build/component/MyComponent.sass"
   // );
 }
 
