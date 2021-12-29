@@ -4,7 +4,7 @@
   "description": "A Quasar App Extension",
   "author": "Yariel Rodriguez <info@wisegar.org>",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "build/index.js",
   "scripts": {
     "start": "nodemon",
     "version": "node ./scripts/build.js && tsc",
