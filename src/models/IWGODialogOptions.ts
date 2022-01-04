@@ -13,4 +13,5 @@ export interface IWGODialogOptions {
   acceptText?: string;
   onCancel?: () => unknown;
   onAccept?: () => unknown;
+  afterResize?: (resize: number) => unknown;
 }
