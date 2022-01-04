@@ -20,7 +20,10 @@ let WGODialog = class WGODialog extends vue_property_decorator_1.Vue {
                 .height || 0;
             const buttonsH = buttons.offsetHeight || 0;
             const titleH = title.offsetHeight || 0;
-            this.contentHeight = `${h - buttonsH - titleH - 68}px`;
+            const height = h - buttonsH - titleH - 68;
+            this.contentHeight = `${height}px`;
+            if (this.options.afterResize)
+                this.options.afterResize(height);
         }
     }
     getIcon() {
