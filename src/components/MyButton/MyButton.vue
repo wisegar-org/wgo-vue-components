@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-btn label="ButtoN" @click="onButtonClick" />
+    <q-btn label="ButtoN" @click="alertClick" />
   </div>
 </template>
 
