@@ -1,7 +1,7 @@
 import { Vue, Component, Prop } from "vue-property-decorator";
 import { ListItem, PropToEdit } from "../models";
 import WGOExpandableListFilter from "./WGOExpandableListFilter.vue";
-import Dialog from "../../Dialog/Dialog.vue";
+import Dialog from "../../WGODialog/WGODialog.vue";
 
 @Component({
   components: {

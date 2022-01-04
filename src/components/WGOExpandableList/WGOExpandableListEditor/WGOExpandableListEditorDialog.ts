@@ -1,5 +1,5 @@
 import { Vue, Component, Prop } from "vue-property-decorator";
-import Dialog from "../../Dialog/Dialog.vue";
+import Dialog from "../../WGODialog/WGODialog.vue";
 import { ListItem, PropToEdit } from "../models";
 import WGOExpandableListEditor from "./WGOExpandableListEditor.vue";
 

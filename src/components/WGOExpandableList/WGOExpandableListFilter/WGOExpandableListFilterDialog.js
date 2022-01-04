@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const vue_property_decorator_1 = require("vue-property-decorator");
 const WGOExpandableListFilter_vue_1 = (0, tslib_1.__importDefault)(require("./WGOExpandableListFilter.vue"));
-const Dialog_vue_1 = (0, tslib_1.__importDefault)(require("../../Dialog/Dialog.vue"));
+const WGODialog_vue_1 = (0, tslib_1.__importDefault)(require("../../WGODialog/WGODialog.vue"));
 let WGOExpandableListFilterDialog = class WGOExpandableListFilterDialog extends vue_property_decorator_1.Vue {
 };
 (0, tslib_1.__decorate)([
@@ -38,7 +38,7 @@ WGOExpandableListFilterDialog = (0, tslib_1.__decorate)([
     (0, vue_property_decorator_1.Component)({
         components: {
             WGOExpandableListFilter: WGOExpandableListFilter_vue_1.default,
-            Dialog: Dialog_vue_1.default,
+            Dialog: WGODialog_vue_1.default,
         },
     })
 ], WGOExpandableListFilterDialog);
