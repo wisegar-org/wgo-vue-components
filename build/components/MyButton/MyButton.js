@@ -7,7 +7,7 @@ let MyButton = class MyButton extends vue_property_decorator_1.Vue {
         alert("I'm your ButtoN!");
     }
 };
-MyButton = tslib_1.__decorate([
-    vue_property_decorator_1.Component({})
+MyButton = (0, tslib_1.__decorate)([
+    (0, vue_property_decorator_1.Component)({})
 ], MyButton);
 exports.default = MyButton;
