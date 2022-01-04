@@ -1,9 +1,9 @@
 import { Vue, Component, Watch, Prop } from "vue-property-decorator";
 import { ListItem, PropToEdit } from "../models";
-import InputDate from "../../InputDate/InputDate.vue";
-import InputText from "../../InputText/InputText.vue";
-import InputNumber from "../../InputNumber/InputNumber.vue";
-import InputSelect from "../../InputSelect/InputSelect.vue";
+import InputDate from "../../WGOInputDate/WGOInputDate.vue";
+import InputText from "../../WGOInputText/WGOInputText.vue";
+import InputNumber from "../../WGOInputNumber/WGOInputNumber.vue";
+import InputSelect from "../../WGOInputSelect/WGOInputSelect.vue";
 
 @Component({
   components: {

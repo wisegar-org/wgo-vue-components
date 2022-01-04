@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const vue_property_decorator_1 = require("vue-property-decorator");
-const InputDate_vue_1 = (0, tslib_1.__importDefault)(require("../../InputDate/InputDate.vue"));
-const InputText_vue_1 = (0, tslib_1.__importDefault)(require("../../InputText/InputText.vue"));
-const InputNumber_vue_1 = (0, tslib_1.__importDefault)(require("../../InputNumber/InputNumber.vue"));
-const InputSelect_vue_1 = (0, tslib_1.__importDefault)(require("../../InputSelect/InputSelect.vue"));
+const WGOInputDate_vue_1 = (0, tslib_1.__importDefault)(require("../../WGOInputDate/WGOInputDate.vue"));
+const WGOInputText_vue_1 = (0, tslib_1.__importDefault)(require("../../WGOInputText/WGOInputText.vue"));
+const WGOInputNumber_vue_1 = (0, tslib_1.__importDefault)(require("../../WGOInputNumber/WGOInputNumber.vue"));
+const WGOInputSelect_vue_1 = (0, tslib_1.__importDefault)(require("../../WGOInputSelect/WGOInputSelect.vue"));
 let WGOExpandableListFilter = class WGOExpandableListFilter extends vue_property_decorator_1.Vue {
     constructor() {
         super();
@@ -50,10 +50,10 @@ let WGOExpandableListFilter = class WGOExpandableListFilter extends vue_property
 WGOExpandableListFilter = (0, tslib_1.__decorate)([
     (0, vue_property_decorator_1.Component)({
         components: {
-            InputDate: InputDate_vue_1.default,
-            InputText: InputText_vue_1.default,
-            InputNumber: InputNumber_vue_1.default,
-            InputSelect: InputSelect_vue_1.default,
+            InputDate: WGOInputDate_vue_1.default,
+            InputText: WGOInputText_vue_1.default,
+            InputNumber: WGOInputNumber_vue_1.default,
+            InputSelect: WGOInputSelect_vue_1.default,
         },
     }),
     (0, tslib_1.__metadata)("design:paramtypes", [])

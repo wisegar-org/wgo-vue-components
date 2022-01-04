@@ -1,5 +1,5 @@
 import { Vue, Component, Prop, Watch } from "vue-property-decorator";
-import Expanded from "../Expanded/Expanded.vue";
+import Expanded from "../WGOExpanded/WGOExpanded.vue";
 import {
   ListItem,
   PropToEdit,
@@ -8,7 +8,7 @@ import {
 } from "./models";
 import WGOExpandableListEditor from "./WGOExpandableListEditor/WGOExpandableListEditor.vue";
 import WGOExpandableListEditorDialog from "./WGOExpandableListEditor/WGOExpandableListEditorDialog.vue";
-import Loader from "../Loader.vue";
+import Loader from "../WGOLoading/WGOLoading.vue";
 import WGOExpandableListFilterLabel from "./WGOExpandableListFilter/WGOExpandableListFilterLabel.vue";
 import WGOExpandableListHeader from "./WGOExpandableListHeader/WGOExpandableListHeader.vue";
 

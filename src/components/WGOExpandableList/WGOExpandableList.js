@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const vue_property_decorator_1 = require("vue-property-decorator");
-const Expanded_vue_1 = (0, tslib_1.__importDefault)(require("../Expanded/Expanded.vue"));
+const WGOExpanded_vue_1 = (0, tslib_1.__importDefault)(require("../WGOExpanded/WGOExpanded.vue"));
 const models_1 = require("./models");
 const WGOExpandableListEditor_vue_1 = (0, tslib_1.__importDefault)(require("./WGOExpandableListEditor/WGOExpandableListEditor.vue"));
 const WGOExpandableListEditorDialog_vue_1 = (0, tslib_1.__importDefault)(require("./WGOExpandableListEditor/WGOExpandableListEditorDialog.vue"));
-const Loader_vue_1 = (0, tslib_1.__importDefault)(require("../Loader.vue"));
+const WGOLoading_vue_1 = (0, tslib_1.__importDefault)(require("../WGOLoading/WGOLoading.vue"));
 const WGOExpandableListFilterLabel_vue_1 = (0, tslib_1.__importDefault)(require("./WGOExpandableListFilter/WGOExpandableListFilterLabel.vue"));
 const WGOExpandableListHeader_vue_1 = (0, tslib_1.__importDefault)(require("./WGOExpandableListHeader/WGOExpandableListHeader.vue"));
 let WGOExpandableList = class WGOExpandableList extends vue_property_decorator_1.Vue {
@@ -196,10 +196,10 @@ let WGOExpandableList = class WGOExpandableList extends vue_property_decorator_1
 WGOExpandableList = (0, tslib_1.__decorate)([
     (0, vue_property_decorator_1.Component)({
         components: {
-            Expanded: Expanded_vue_1.default,
+            Expanded: WGOExpanded_vue_1.default,
             WGOExpandableListEditor: WGOExpandableListEditor_vue_1.default,
             WGOExpandableListEditorDialog: WGOExpandableListEditorDialog_vue_1.default,
-            Loader: Loader_vue_1.default,
+            Loader: WGOLoading_vue_1.default,
             WGOExpandableListFilterLabel: WGOExpandableListFilterLabel_vue_1.default,
             WGOExpandableListHeader: WGOExpandableListHeader_vue_1.default,
         },
