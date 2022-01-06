@@ -11,6 +11,7 @@ export interface IWGODialogOptions {
   hideButtons?: boolean;
   cancelText?: string;
   acceptText?: string;
+  styleDialog?: string;
   onCancel?: () => unknown;
   onAccept?: () => unknown;
   afterResize?: (resize: number) => unknown;

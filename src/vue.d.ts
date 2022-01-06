@@ -1,4 +1,4 @@
-import { Vue } from "vue-property-decorator";
+import Vue from "vue";
 import { QVueGlobals } from "quasar";
 
 declare module "vue/types/vue" {

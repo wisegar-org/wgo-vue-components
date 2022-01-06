@@ -22,14 +22,20 @@
         </q-toolbar>
         <q-card-section class="scroll q-pa-none">
           <q-scroll-area
-            :style="`max-height: ${
-              options.height ? options.height : contentHeight
-            }; height: ${contentHeight}`"
+            :style="
+              `max-height: ${
+                options.height ? options.height : contentHeight
+              }; height: ${contentHeight}`
+            "
+            ref="placeholder2"
           >
             <slot ref="slot"></slot>
           </q-scroll-area>
         </q-card-section>
-        <q-card-section class="q-pa-sm">
+        <q-card-section
+          v-if="!!$slots.buttons || !options.hideButtons"
+          class="q-pa-sm"
+        >
           <div class="flex justify-around row" ref="buttons">
             <slot name="buttons"> </slot>
             <q-btn
