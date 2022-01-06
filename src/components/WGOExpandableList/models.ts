@@ -6,7 +6,7 @@ export interface PropToEdit {
   label: string;
   prop: string;
   tooltip?: string | ((item: ListItem) => string);
-  type?: "number" | "text" | "date" | "select";
+  type?: 'number' | 'text' | 'date' | 'select';
   value?: (item: ListItem) => string;
   options?: unknown;
   required?: boolean;
@@ -32,6 +32,8 @@ export interface WGOExpandableListOptions {
   showAddBotton: boolean;
   labelShowAddBotton: string;
   textDeleteConfirm: string;
+  labelAddDialog?: string;
+  labelFilterDialog?: string;
   editReactive?: boolean;
   editorStyle?: string;
   disableFullscreen?: boolean;
@@ -62,8 +64,8 @@ export interface WGOExpandableListOptions {
 
 export const DefaultWGOExpandableListOptions: WGOExpandableListOptions = {
   showAddBotton: true,
-  labelShowAddBotton: "Nuovo",
-  textDeleteConfirm: "Confermi la cancellazione",
+  labelShowAddBotton: 'Nuovo',
+  textDeleteConfirm: 'Confermi la cancellazione',
   disableFullscreen: false,
   disableExportExcel: false,
   disableExportCSV: false,
@@ -73,5 +75,5 @@ export const DefaultWGOExpandableListOptions: WGOExpandableListOptions = {
   expandedButtons: [],
   onAddItem: (item: ListItem) => {},
   onEditItem: (item: ListItem) => {},
-  onDeleteItem: (item: ListItem) => {},
+  onDeleteItem: (item: ListItem) => {}
 };

@@ -1,12 +1,6 @@
 <template>
-  <Dialog
-    :title="title"
-    :icon="icon"
-    :showModal="open"
-    :close="close"
-    style="z-index: 9999"
-  >
-    <template slot="content">
+  <Dialog :options="options">
+    <template>
       <div class="col-12">
         <WGOExpandableListFilter
           :propsEditor="propsEditor"

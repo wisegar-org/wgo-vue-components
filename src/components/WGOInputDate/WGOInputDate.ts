@@ -23,22 +23,22 @@ import {
   IsStringEmptyNullOrUndefined,
 } from "@wisegar-org/wgo-opengar-shared";
 import moment from "moment";
-declare module "vue/types/vue" {
-  interface Vue {
-    $q: QVueGlobals;
-    $t: {
-      (
-        key: string,
-        values?: VueI18n.Values | undefined
-      ): VueI18n.TranslateResult;
-      (
-        key: string,
-        locale: string,
-        values?: VueI18n.Values | undefined
-      ): VueI18n.TranslateResult;
-    };
-  }
-}
+// declare module "vue/types/vue" {
+//   interface Vue {
+//     $q: QVueGlobals;
+//     $t: {
+//       (
+//         key: string,
+//         values?: VueI18n.Values | undefined
+//       ): VueI18n.TranslateResult;
+//       (
+//         key: string,
+//         locale: string,
+//         values?: VueI18n.Values | undefined
+//       ): VueI18n.TranslateResult;
+//     };
+//   }
+// }
 
 @Component({
   components: {

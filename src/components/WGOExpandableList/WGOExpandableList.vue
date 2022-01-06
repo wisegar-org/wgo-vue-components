@@ -114,7 +114,7 @@
     </q-card>
     <WGOExpandableListEditorDialog
       :icon="icon"
-      :title="options.labelShowAddBotton"
+      :title="options.labelAddDialog"
       :styleDialog="options.editorStyle"
       :open="openDialog"
       :close="() => (openDialog = false)"

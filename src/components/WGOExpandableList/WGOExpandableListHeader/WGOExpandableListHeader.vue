@@ -18,7 +18,7 @@
             color="primary"
             icon="add"
             :label="options.labelShowAddBotton"
-            @click="(itemForm) => addItem(itemForm, closeDialog)"
+            @click="itemForm => addItem(itemForm, closeDialog)"
           />
         </slot>
       </div>
@@ -41,6 +41,7 @@
           :filter="filter"
           :propsEditor="propsEditor"
           :applyFilter="applyFilter"
+          :title="options.labelFilterDialog"
           ref="filter"
         />
         <WGOExpandableListExportClipboardButton

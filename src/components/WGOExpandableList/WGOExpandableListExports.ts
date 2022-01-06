@@ -1,15 +1,15 @@
-import { ListItem, PropToEdit } from "./models";
-import ExcelJS from "exceljs";
-import { saveAs } from "file-saver";
+import { ListItem, PropToEdit } from './models';
+import ExcelJS from 'exceljs';
+import { saveAs } from 'file-saver';
 
 export const WGOExpandableListExportExcel = async (
   itemList: ListItem[],
   columns: PropToEdit[]
 ) => {
-  const filterColumns = columns.filter((prop) => prop.required || prop.visible);
-  const fileName = "export.xlsx";
+  const filterColumns = columns.filter(prop => prop.required || prop.visible);
+  const fileName = 'export.xlsx';
   const workbook = new ExcelJS.Workbook();
-  const sheet = workbook.addWorksheet("Table");
+  const sheet = workbook.addWorksheet('Table');
   const worksheet = workbook.getWorksheet(1);
   worksheet.addRow(
     filterColumns.map((c: PropToEdit) => {
@@ -20,7 +20,7 @@ export const WGOExpandableListExportExcel = async (
   itemList.map((d: ListItem) => {
     worksheet.addRow(
       filterColumns
-        .filter((prop) => prop.required || prop.visible)
+        .filter(prop => prop.required || prop.visible)
         .map((c: PropToEdit) => {
           if (c.value) return c.value(d);
           return d[c.prop];
@@ -36,22 +36,23 @@ export const WGOExpandableListExportCSV = async (
   itemList: ListItem[],
   columns: PropToEdit[]
 ) => {
-  const fileName = "export.csv";
-  const filterColumns = columns.filter((prop) => prop.required || prop.visible);
+  const fileName = 'export.csv';
+  const filterColumns = columns.filter(prop => prop.required || prop.visible);
   let content =
     filterColumns
       .map((c: PropToEdit) => {
         return c.label;
       })
-      .join(",") + ",\n";
+      .join(',') + ',\n';
 
   itemList.map((d: ListItem) => {
     content +=
       filterColumns
         .map((c: PropToEdit) => {
+          if (c.value) return c.value(d);
           return d[c.prop];
         })
-        .join(",") + ",\n";
+        .join(',') + ',\n';
   });
 
   saveAs(new Blob([content]), fileName);
@@ -61,21 +62,22 @@ export const WGOExpandableListExportClipboard = (
   itemList: ListItem[],
   columns: PropToEdit[]
 ) => {
-  const filterColumns = columns.filter((prop) => prop.required || prop.visible);
+  const filterColumns = columns.filter(prop => prop.required || prop.visible);
   let content =
     filterColumns
       .map((c: PropToEdit) => {
         return c.label;
       })
-      .join(";") + "\n";
+      .join(';') + '\n';
 
   itemList.map((d: ListItem) => {
     content +=
       filterColumns
         .map((c: PropToEdit) => {
+          if (c.value) return c.value(d);
           return d[c.prop];
         })
-        .join(";") + "\n";
+        .join(';') + '\n';
   });
 
   return content;

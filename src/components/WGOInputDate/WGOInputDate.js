@@ -7,6 +7,22 @@ const quasar_1 = require("quasar");
 const wgo_opengar_shared_1 = require("@wisegar-org/wgo-opengar-shared");
 const wgo_opengar_shared_2 = require("@wisegar-org/wgo-opengar-shared");
 const moment_1 = (0, tslib_1.__importDefault)(require("moment"));
+// declare module "vue/types/vue" {
+//   interface Vue {
+//     $q: QVueGlobals;
+//     $t: {
+//       (
+//         key: string,
+//         values?: VueI18n.Values | undefined
+//       ): VueI18n.TranslateResult;
+//       (
+//         key: string,
+//         locale: string,
+//         values?: VueI18n.Values | undefined
+//       ): VueI18n.TranslateResult;
+//     };
+//   }
+// }
 let WGOInputDate = 
 /**
  * date: data in ingresso di tipo Date
