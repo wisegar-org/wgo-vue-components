@@ -40,4 +40,4 @@ const copyVueFiles = (directory, buildDirectory) => {
 };
 
 cleanDir(directory);
-copyVueFiles(directory, buildDirectory);
+// copyVueFiles(directory, buildDirectory);
