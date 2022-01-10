@@ -20,16 +20,17 @@
         </div>
       </q-banner>
     </q-popup-proxy>
-    <q-tooltip>Show / Hide columns</q-tooltip>
+    <q-tooltip>{{ tooltip }}</q-tooltip>
   </q-btn>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
-import { PropToEdit } from "../models";
+import { Vue, Component, Prop } from 'vue-property-decorator';
+import { PropToEdit } from '../models';
 
 @Component({})
 export default class WGOExpandableListSelectColumnsButtton extends Vue {
   @Prop({ default: () => [] }) propsEditor!: PropToEdit[];
+  @Prop({ default: 'Show / Hide columns' }) tooltip!: string;
 }
 </script>

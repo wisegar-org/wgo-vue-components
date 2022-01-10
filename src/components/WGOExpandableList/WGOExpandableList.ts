@@ -1,16 +1,16 @@
-import { Vue, Component, Prop, Watch } from "vue-property-decorator";
-import Expanded from "../WGOExpanded/WGOExpanded.vue";
+import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
+import Expanded from '../WGOExpanded/WGOExpanded.vue';
 import {
   ListItem,
   PropToEdit,
   DefaultWGOExpandableListOptions,
-  WGOExpandableListOptions,
-} from "./models";
-import WGOExpandableListEditor from "./WGOExpandableListEditor/WGOExpandableListEditor.vue";
-import WGOExpandableListEditorDialog from "./WGOExpandableListEditor/WGOExpandableListEditorDialog.vue";
-import Loader from "../WGOLoading/WGOLoading.vue";
-import WGOExpandableListFilterLabel from "./WGOExpandableListFilter/WGOExpandableListFilterLabel.vue";
-import WGOExpandableListHeader from "./WGOExpandableListHeader/WGOExpandableListHeader.vue";
+  WGOExpandableListOptions
+} from './models';
+import WGOExpandableListEditor from './WGOExpandableListEditor/WGOExpandableListEditor.vue';
+import WGOExpandableListEditorDialog from './WGOExpandableListEditor/WGOExpandableListEditorDialog.vue';
+import Loader from '../WGOLoading/WGOLoading.vue';
+import WGOExpandableListFilterLabel from './WGOExpandableListFilter/WGOExpandableListFilterLabel.vue';
+import WGOExpandableListHeader from './WGOExpandableListHeader/WGOExpandableListHeader.vue';
 
 @Component({
   components: {
@@ -19,19 +19,19 @@ import WGOExpandableListHeader from "./WGOExpandableListHeader/WGOExpandableList
     WGOExpandableListEditorDialog,
     Loader,
     WGOExpandableListFilterLabel,
-    WGOExpandableListHeader,
-  },
+    WGOExpandableListHeader
+  }
 })
 export default class WGOExpandableList extends Vue {
-  @Prop({ default: "" }) title!: string;
+  @Prop({ default: '' }) title!: string;
   @Prop({ default: () => [] }) items!: ListItem[];
   @Prop({ default: () => [] }) allItems!: ListItem[];
   @Prop({ default: () => [] }) propsEditor!: PropToEdit[];
-  @Prop({ default: "info" }) icon!: string;
+  @Prop({ default: 'info' }) icon!: string;
   @Prop({ default: () => DefaultWGOExpandableListOptions })
   options!: WGOExpandableListOptions;
   @Prop({ default: false }) loading!: boolean;
-  @Prop({ default: "" }) filterStr!: string;
+  @Prop({ default: '' }) filterStr!: string;
   @Prop() watchProps!: any;
 
   filterItems: ListItem[] = this.items;
@@ -42,13 +42,13 @@ export default class WGOExpandableList extends Vue {
   public cardHeight = 500;
   public listHeight = 300;
   id_button =
-    "button-" +
+    'button-' +
     Math.random()
       .toString(20)
       .substring(2, 10);
 
-  @Watch("filter")
-  @Watch("items")
+  @Watch('filter')
+  @Watch('items')
   onFilterChange() {
     this.filterItems = this.options.filterItems
       ? this.options.filterItems(this.items, this.filter)
@@ -77,20 +77,20 @@ export default class WGOExpandableList extends Vue {
   deleteItem(item: ListItem, index: number) {
     this.$q
       .dialog({
-        title: "Confirm",
+        title: 'Confirm',
         message: this.options.textDeleteConfirm,
         persistent: true,
-        focus: "cancel",
+        focus: 'cancel',
         ok: {
-          color: "primary",
-          label: "Si",
-          tabindex: 0,
+          color: 'primary',
+          label: 'Si',
+          tabindex: 0
         },
         cancel: {
           flat: true,
-          label: "No",
-          tabindex: 1,
-        },
+          label: 'No',
+          tabindex: 1
+        }
       })
       .onOk(async () => {
         await this.options.onDeleteItem(item, index);
@@ -98,50 +98,53 @@ export default class WGOExpandableList extends Vue {
   }
 
   public addResize(onResizeFn: any) {
-    window.addEventListener("resize", onResizeFn);
+    window.addEventListener('resize', onResizeFn);
     this.$nextTick(() => {
-      onResizeFn();
+      setTimeout(onResizeFn, 150);
     });
   }
 
   public removeResize(onResizeFn: any) {
-    window.removeEventListener("resize", onResizeFn);
+    window.removeEventListener('resize', onResizeFn);
   }
 
-  @Watch("watchProps", { immediate: false })
-  @Watch("filterStr", { immediate: false })
+  @Watch('watchProps', { immediate: false })
+  @Watch('filterStr', { immediate: false })
   resizeMenu() {
-    setTimeout(this.resizeCard, 130);
+    setTimeout(this.resizeCard, 150);
   }
 
   public resizeCard(
     defaultBottomPx: number = 0,
-    defaultPlaceholderPx: number = 157
+    defaultplaceholderExpListPx: number = 157
   ) {
-    const placeholder = this.$refs.placeholder as HTMLElement;
+    const placeholderExpList = this.$refs.placeholderExpList as HTMLElement;
     const filterLabel = this.$refs.filterLabel as HTMLElement;
     const pagination = this.$refs.pagination as HTMLElement;
-    if (placeholder) {
+    if (placeholderExpList) {
       const h =
-        placeholder.getBoundingClientRect().bottom || defaultPlaceholderPx;
+        placeholderExpList.getBoundingClientRect().bottom ||
+        defaultplaceholderExpListPx;
       this.cardHeight = this.options.minHeight
         ? this.options.minHeight
         : window.innerHeight - h - defaultBottomPx;
     } else {
       this.cardHeight = 500;
     }
-    const placeholder2 = this.$refs.placeholder2 as HTMLElement;
-    const placeholder3 = this.$refs.placeholder3 as HTMLElement;
+    const placeholderExpList2 = this.$refs.placeholderExpList2 as HTMLElement;
+    const placeholderExpList3 = this.$refs.placeholderExpList3 as HTMLElement;
     if (this.cardHeight === this.options.minHeight) {
       const h2 = !!this.$q.platform.is.mobile ? 2 : 1;
-      const mobileH = placeholder3 ? 0 : 40;
+      const mobileH = placeholderExpList3 ? 0 : 40;
       const filterH = filterLabel.offsetHeight || 0;
       this.listHeight = this.options.minHeight - 120 - h2 * mobileH - filterH;
-    } else if (placeholder2) {
+    } else if (placeholderExpList2) {
       const h =
-        placeholder2.getBoundingClientRect().bottom || defaultPlaceholderPx;
+        placeholderExpList2.getBoundingClientRect().bottom ||
+        defaultplaceholderExpListPx;
       const filterH = filterLabel.offsetHeight || 0;
       const paginationH = pagination.offsetHeight || 0;
+      debugger;
       this.listHeight =
         window.innerHeight - h - paginationH - defaultBottomPx - 20 - filterH;
     } else {
@@ -151,17 +154,17 @@ export default class WGOExpandableList extends Vue {
 
   getLabels(item: ListItem) {
     const result: { label: string; tooltip?: string; columns: number }[] = [];
-    this.propsEditor.forEach((prop) => {
+    this.propsEditor.forEach(prop => {
       if (prop.required || prop.visible) {
         const value = prop.value
           ? prop.value(item)
           : `${(item as any)[prop.prop]}`;
-        let tooltip = "";
+        let tooltip = '';
         const columns = prop.columns || 1;
 
         if (prop.tooltip) {
           tooltip =
-            typeof prop.tooltip === "string"
+            typeof prop.tooltip === 'string'
               ? prop.tooltip
               : prop.tooltip(item);
         }

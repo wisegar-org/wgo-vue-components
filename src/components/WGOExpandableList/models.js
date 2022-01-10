@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DefaultWGOExpandableListOptions = void 0;
 exports.DefaultWGOExpandableListOptions = {
-    showAddBotton: true,
-    labelShowAddBotton: 'Nuovo',
-    textDeleteConfirm: 'Confermi la cancellazione',
+    showAddButton: true,
+    labelshowAddButton: "Nuovo",
+    textDeleteConfirm: "Confermi la cancellazione",
     disableFullscreen: false,
     disableExportExcel: false,
     disableExportCSV: false,
@@ -14,5 +14,5 @@ exports.DefaultWGOExpandableListOptions = {
     expandedButtons: [],
     onAddItem: (item) => { },
     onEditItem: (item) => { },
-    onDeleteItem: (item) => { }
+    onDeleteItem: (item) => { },
 };

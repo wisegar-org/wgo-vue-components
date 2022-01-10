@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-none fit" style="min-width: 100%">
-    <div ref="placeholder" style="height: 1px"></div>
+    <div ref="placeholderExpList" style="height: 1px"></div>
     <q-card
       ref="viewCard"
       :bordered="!!options.bordered"
@@ -12,7 +12,7 @@
         :items="allItems && allItems.length > 0 ? allItems : items"
         :options="options"
         :propsEditor="propsEditor"
-        :addItem="(itemForm) => addItem(itemForm, closeDialog)"
+        :addItem="itemForm => addItem(itemForm, closeDialog)"
         :filter="filter"
         :applyFilter="applyFilter"
         :toggleFullScreen="toggleFullScreen"
@@ -25,7 +25,7 @@
           <slot name="headerButtons"></slot>
         </template>
       </WGOExpandableListHeader>
-      <div ref="placeholder2" style="height: 1px"></div>
+      <div ref="placeholderExpList2" style="height: 1px"></div>
       <div ref="filterLabel">
         <slot name="filterLabel">
           <WGOExpandableListFilterLabel
@@ -56,7 +56,7 @@
                       :item="item"
                       :reactive="options.editReactive"
                       :onSaveItem="
-                        (itemForm) => options.onEditItem(itemForm, closeDialog)
+                        itemForm => options.onEditItem(itemForm, closeDialog)
                       "
                     />
                   </slot>
@@ -107,7 +107,7 @@
       <q-card-section class="q-pa-none">
         <div ref="pagination">
           <slot name="pagination">
-            <div ref="placeholder3" style="height: 1px"></div>
+            <div ref="placeholderExpList3" style="height: 1px"></div>
           </slot>
         </div>
       </q-card-section>
@@ -120,7 +120,7 @@
       :close="() => (openDialog = false)"
       :item="selectedItem"
       :propsEditor="propsEditor"
-      :onSaveItem="(itemForm) => options.onAddItem(itemForm, closeDialog)"
+      :onSaveItem="itemForm => options.onAddItem(itemForm, closeDialog)"
     />
     <Loader :loading="loading" />
   </div>

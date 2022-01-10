@@ -1,6 +1,6 @@
 <template>
-  <q-btn flat dense color="primary" @click="exportExcel" icon="content_copy"
-    ><q-tooltip>Copy data</q-tooltip></q-btn
+  <q-btn flat dense color="primary" @click="exportClipboard" icon="content_copy"
+    ><q-tooltip>{{ tooltip }}</q-tooltip></q-btn
   >
 </template>
 
@@ -13,8 +13,10 @@ import { WGOExpandableListExportClipboard } from "../WGOExpandableListExports";
 export default class WGOExpandableListExportClipboardButton extends Vue {
   @Prop({ default: () => [] }) items!: ListItem[];
   @Prop({ default: () => [] }) propsEditor!: PropToEdit[];
+  @Prop({ default: "Copy data" }) tooltip!: string;
+  @Prop({ default: "Dati copiati negli appunti" }) msg!: string;
 
-  async exportExcel() {
+  async exportClipboard() {
     const text = WGOExpandableListExportClipboard(this.items, this.propsEditor);
     await navigator.clipboard.writeText(text);
     this.$q.notify({
@@ -22,7 +24,7 @@ export default class WGOExpandableListExportClipboardButton extends Vue {
       textColor: "white",
       icon: "cloud_done",
       position: "top",
-      message: "Dati copiati negli appunti",
+      message: this.msg,
     });
   }
 }

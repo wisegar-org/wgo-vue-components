@@ -10,7 +10,7 @@
       :open="showFilterDialog"
       :close="() => (showFilterDialog = false)"
     />
-    <q-tooltip>Set filters</q-tooltip></q-btn
+    <q-tooltip>{{ tooltip }}</q-tooltip></q-btn
   >
 </template>
 
@@ -29,6 +29,7 @@ export default class WGOExpandableListFilterButton extends Vue {
   @Prop({ default: () => [] }) propsEditor!: PropToEdit[];
   @Prop({ default: () => null }) applyFilter!: (filter: ListItem) => unknown;
   @Prop({ default: 'Filter' }) title!: string;
+  @Prop({ default: 'Set filters' }) tooltip!: string;
   showFilterDialog = false;
 
   onShowDialog() {

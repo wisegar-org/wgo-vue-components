@@ -11,14 +11,14 @@
       <div class="flex row q-pt-sm">
         <slot name="addButton">
           <q-btn
-            v-if="options.showAddBotton"
+            v-if="options.showAddButton"
             unelevated
             size="sm"
             class="q-mr-md"
             color="primary"
             icon="add"
-            :label="options.labelShowAddBotton"
-            @click="itemForm => addItem(itemForm, closeDialog)"
+            :label="options.labelshowAddButton"
+            @click="(itemForm) => addItem(itemForm, closeDialog)"
           />
         </slot>
       </div>
@@ -42,26 +42,32 @@
           :propsEditor="propsEditor"
           :applyFilter="applyFilter"
           :title="options.labelFilterDialog"
+          :tooltip="options.labelFiltersButton"
           ref="filter"
         />
         <WGOExpandableListExportClipboardButton
           v-if="!options.disableExportClipboard"
           :items="items"
           :propsEditor="propsEditor"
+          :tooltip="options.labelExportClipboardButton"
+          :msg="options.textExportClipboardMsg"
         />
         <WGOExpandableListExportExcelButton
           v-if="!options.disableExportExcel"
           :items="items"
           :propsEditor="propsEditor"
+          :tooltip="options.labelExportExcelButton"
         />
         <WGOExpandableListExportCSVButton
           v-if="!options.disableExportCSV"
           :items="items"
           :propsEditor="propsEditor"
+          :tooltip="options.labelExportCSVButton"
         />
         <WGOExpandableListSelectColumnsButtton
           v-if="!options.disableSelectColumns"
           :propsEditor="propsEditor"
+          :tooltip="options.labelSelectColumnsButton"
         />
         <q-btn
           v-if="!options.disableFullscreen"
@@ -74,7 +80,11 @@
               ? 'fullscreen_exit'
               : 'fullscreen'
           "
-          ><q-tooltip>Visualizza tabella a schermo intero</q-tooltip></q-btn
+          ><q-tooltip>{{
+            options.labelFullscreenButton
+              ? options.labelFullscreenButton
+              : "Visualizza tabella a schermo intero"
+          }}</q-tooltip></q-btn
         >
       </div>
     </div>

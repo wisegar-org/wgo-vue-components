@@ -6,7 +6,7 @@ export interface PropToEdit {
   label: string;
   prop: string;
   tooltip?: string | ((item: ListItem) => string);
-  type?: 'number' | 'text' | 'date' | 'select';
+  type?: "number" | "text" | "date" | "select";
   value?: (item: ListItem) => string;
   options?: unknown;
   required?: boolean;
@@ -29,19 +29,26 @@ export interface WGOExpandableButton {
 }
 
 export interface WGOExpandableListOptions {
-  showAddBotton: boolean;
-  labelShowAddBotton: string;
+  showAddButton: boolean;
+  labelshowAddButton: string;
   textDeleteConfirm: string;
   labelAddDialog?: string;
   labelFilterDialog?: string;
   editReactive?: boolean;
   editorStyle?: string;
   disableFullscreen?: boolean;
+  labelFullscreenButton?: boolean;
   disableExportExcel?: boolean;
+  labelExportExcelButton?: boolean;
   disableExportCSV?: boolean;
+  labelExportCSVButton?: boolean;
   disableExportClipboard?: boolean;
+  labelExportClipboardButton?: boolean;
+  textExportClipboardMsg?: boolean;
   disableFilters?: boolean;
+  labelFiltersButton?: boolean;
   disableSelectColumns?: boolean;
+  labelSelectColumnsButton?: boolean;
   minHeight?: number;
   bordered?: boolean;
   maxLabels?: number;
@@ -63,9 +70,9 @@ export interface WGOExpandableListOptions {
 }
 
 export const DefaultWGOExpandableListOptions: WGOExpandableListOptions = {
-  showAddBotton: true,
-  labelShowAddBotton: 'Nuovo',
-  textDeleteConfirm: 'Confermi la cancellazione',
+  showAddButton: true,
+  labelshowAddButton: "Nuovo",
+  textDeleteConfirm: "Confermi la cancellazione",
   disableFullscreen: false,
   disableExportExcel: false,
   disableExportCSV: false,
@@ -75,5 +82,5 @@ export const DefaultWGOExpandableListOptions: WGOExpandableListOptions = {
   expandedButtons: [],
   onAddItem: (item: ListItem) => {},
   onEditItem: (item: ListItem) => {},
-  onDeleteItem: (item: ListItem) => {}
+  onDeleteItem: (item: ListItem) => {},
 };
