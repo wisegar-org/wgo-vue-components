@@ -74,7 +74,7 @@ let WGOExpandableList = class WGOExpandableList extends vue_property_decorator_1
         window.removeEventListener('resize', onResizeFn);
     }
     resizeMenu() {
-        setTimeout(this.resizeCard, 150);
+        setTimeout(this.resizeCard, 400);
     }
     resizeCard(defaultBottomPx = 0, defaultplaceholderExpListPx = 157) {
         const placeholderExpList = this.$refs.placeholderExpList;

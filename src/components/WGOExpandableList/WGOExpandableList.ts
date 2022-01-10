@@ -111,7 +111,7 @@ export default class WGOExpandableList extends Vue {
   @Watch('watchProps', { immediate: false })
   @Watch('filterStr', { immediate: false })
   resizeMenu() {
-    setTimeout(this.resizeCard, 150);
+    setTimeout(this.resizeCard, 400);
   }
 
   public resizeCard(
