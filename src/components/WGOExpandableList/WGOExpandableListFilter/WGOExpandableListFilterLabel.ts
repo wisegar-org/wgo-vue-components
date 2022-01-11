@@ -1,11 +1,11 @@
 import { Vue, Component, Prop } from "vue-property-decorator";
-import { ListItem, PropToEdit } from "../models";
+import { WGOListItem, WGOPropToEdit } from "../models";
 
 @Component({})
 export default class WGOExpandableListFilterLabel extends Vue {
   @Prop({ default: "" }) filterStr!: string;
-  @Prop({ default: () => [] }) propsEditor!: PropToEdit[];
-  @Prop({ default: () => ({}) }) filter!: ListItem;
+  @Prop({ default: () => [] }) propsEditor!: WGOPropToEdit[];
+  @Prop({ default: () => ({}) }) filter!: WGOListItem;
   @Prop({ default: "and" }) joinText!: string;
   @Prop({ default: () => {} }) cleanFilter!: () => unknown;
   @Prop({ default: () => {} }) openFilter!: () => unknown;

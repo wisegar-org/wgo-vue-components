@@ -2,8 +2,8 @@ import { Vue, Component, Prop } from "vue-property-decorator";
 import {
   DefaultWGOExpandableListOptions,
   WGOExpandableListOptions,
-  ListItem,
-  PropToEdit,
+  WGOListItem,
+  WGOPropToEdit,
 } from "../models";
 import WGOExpandableListExportClipboardButton from "../WGOExpandableListButtons/WGOExpandableListExportClipboardButton.vue";
 import WGOExpandableListExportCSVButton from "../WGOExpandableListButtons/WGOExpandableListExportCSVButton.vue";
@@ -22,17 +22,17 @@ import WGOExpandableListSelectColumnsButtton from "../WGOExpandableListButtons/W
 })
 export default class WGOExpandableListHeader extends Vue {
   @Prop({ default: "" }) title!: string;
-  @Prop({ default: () => [] }) propsEditor!: PropToEdit[];
+  @Prop({ default: () => [] }) propsEditor!: WGOPropToEdit[];
   @Prop({ default: () => DefaultWGOExpandableListOptions })
   options!: WGOExpandableListOptions;
-  @Prop({ default: () => [] }) items!: ListItem[];
-  @Prop({ default: () => {} }) filter!: ListItem;
+  @Prop({ default: () => [] }) items!: WGOListItem[];
+  @Prop({ default: () => {} }) filter!: WGOListItem;
   @Prop({ default: () => ({}) }) toggleFullScreen!: () => unknown;
-  @Prop({ default: (item: ListItem | null) => ({}) }) addItem!: (
-    item: ListItem | null
+  @Prop({ default: (item: WGOListItem | null) => ({}) }) addItem!: (
+    item: WGOListItem | null
   ) => unknown;
-  @Prop({ default: (filter: ListItem) => ({}) }) applyFilter!: (
-    filter: ListItem
+  @Prop({ default: (filter: WGOListItem) => ({}) }) applyFilter!: (
+    filter: WGOListItem
   ) => unknown;
   @Prop({ default: () => ({}) }) closeDialog!: () => unknown;
   id_button = "button-header-" + Math.random().toString(20).substring(2, 10);

@@ -25,12 +25,12 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import { PropToEdit } from '../models';
+import { Vue, Component, Prop } from "vue-property-decorator";
+import { WGOPropToEdit } from "../models";
 
 @Component({})
 export default class WGOExpandableListSelectColumnsButtton extends Vue {
-  @Prop({ default: () => [] }) propsEditor!: PropToEdit[];
-  @Prop({ default: 'Show / Hide columns' }) tooltip!: string;
+  @Prop({ default: () => [] }) propsEditor!: WGOPropToEdit[];
+  @Prop({ default: "Show / Hide columns" }) tooltip!: string;
 }
 </script>

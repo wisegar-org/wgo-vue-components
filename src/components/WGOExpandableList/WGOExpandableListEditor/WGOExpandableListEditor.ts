@@ -1,5 +1,5 @@
 import { Vue, Component, Prop } from "vue-property-decorator";
-import { ListItem, PropToEdit } from "../models";
+import { WGOListItem, WGOPropToEdit } from "../models";
 import InputDate from "../../WGOInputDate/WGOInputDate.vue";
 import InputText from "../../WGOInputText/WGOInputText.vue";
 import InputNumber from "../../WGOInputNumber/WGOInputNumber.vue";
@@ -21,14 +21,14 @@ import { IWGOInputDateOptions } from "../../../models/IWGOInputDateOptions";
   },
 })
 export default class WGOExpandableListEditor extends Vue {
-  @Prop() item!: ListItem;
+  @Prop() item!: WGOListItem;
   @Prop({ default: false }) reactive!: boolean;
-  @Prop({ default: () => [] }) propsEditor!: PropToEdit[];
-  @Prop({ default: () => {} }) onSaveItem!: (item: ListItem) => unknown;
+  @Prop({ default: () => [] }) propsEditor!: WGOPropToEdit[];
+  @Prop({ default: () => {} }) onSaveItem!: (item: WGOListItem) => unknown;
   @Prop({ default: () => {} }) close!: () => unknown;
   @Prop({ default: false }) showClose!: boolean;
 
-  itemForm: ListItem = {};
+  itemForm: WGOListItem = {};
 
   constructor() {
     super();
@@ -55,11 +55,15 @@ export default class WGOExpandableListEditor extends Vue {
     }
   }
 
-  setDateValue(date: Date, obj: ListItem, prop: string) {
+  setDateValue(date: Date, obj: WGOListItem, prop: string) {
     obj[prop] = date.toISOString();
   }
 
-  getDateOptions(options: IWGOInputDateOptions, obj: ListItem, prop: string) {
+  getDateOptions(
+    options: IWGOInputDateOptions,
+    obj: WGOListItem,
+    prop: string
+  ) {
     const setDateValue = this.setDateValue;
     const inputOptions = {
       onChangeDate: (date: Date) => setDateValue(date, obj, prop),

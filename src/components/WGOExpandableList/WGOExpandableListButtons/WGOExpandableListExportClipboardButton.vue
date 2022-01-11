@@ -6,13 +6,13 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
-import { ListItem, PropToEdit } from "../models";
+import { WGOListItem, WGOPropToEdit } from "../models";
 import { WGOExpandableListExportClipboard } from "../WGOExpandableListExports";
 
 @Component({})
 export default class WGOExpandableListExportClipboardButton extends Vue {
-  @Prop({ default: () => [] }) items!: ListItem[];
-  @Prop({ default: () => [] }) propsEditor!: PropToEdit[];
+  @Prop({ default: () => [] }) items!: WGOListItem[];
+  @Prop({ default: () => [] }) propsEditor!: WGOPropToEdit[];
   @Prop({ default: "Copy data" }) tooltip!: string;
   @Prop({ default: "Dati copiati negli appunti" }) msg!: string;
 

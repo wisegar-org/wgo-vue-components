@@ -17,6 +17,7 @@ import WGOInputDate from "../components/WGOInputDate/WGOInputDate.vue";
 import WGOInputSelect from "../components/WGOInputSelect/WGOInputSelect.vue";
 
 import WGOExpandableList from "../components/WGOExpandableList/WGOExpandableList.vue";
+import WGOExpandableListHeader from "../components/WGOExpandableList/WGOExpandableListHeader/WGOExpandableListHeader.vue";
 import WGOExpandableListFilterLabel from "../components/WGOExpandableList/WGOExpandableListFilter/WGOExpandableListFilterLabel.vue";
 // we globally register our component with Vue
 export default ({ app }: any) => {
@@ -34,5 +35,6 @@ export default ({ app }: any) => {
   Vue.component("wgo-iselect", WGOInputSelect);
 
   Vue.component("wgo-exp-list", WGOExpandableList);
+  Vue.component("wgo-exp-list-header", WGOExpandableListHeader);
   Vue.component("wgo-exp-list-filter-lab", WGOExpandableListFilterLabel);
 };

@@ -1,13 +1,13 @@
-export interface ListItem {
+export interface WGOListItem {
   [key: string]: unknown;
 }
 
-export interface PropToEdit {
+export interface WGOPropToEdit {
   label: string;
   prop: string;
-  tooltip?: string | ((item: ListItem) => string);
+  tooltip?: string | ((item: WGOListItem) => string);
   type?: "number" | "text" | "date" | "select";
-  value?: (item: ListItem) => string;
+  value?: (item: WGOListItem) => string;
   options?: unknown;
   required?: boolean;
   visible?: boolean;
@@ -24,13 +24,13 @@ export interface WGOExpandableHeaderButton {
 export interface WGOExpandableButton {
   icon: string;
   tooltip: string;
-  click: (item?: ListItem) => unknown;
-  disabled?: (item?: ListItem) => boolean;
+  click: (item?: WGOListItem) => unknown;
+  disabled?: (item?: WGOListItem) => boolean;
 }
 
 export interface WGOExpandableListOptions {
   showAddButton: boolean;
-  labelshowAddButton: string;
+  labelShowAddButton: string;
   textDeleteConfirm: string;
   labelAddDialog?: string;
   labelFilterDialog?: string;
@@ -61,17 +61,17 @@ export interface WGOExpandableListOptions {
   expandedButtons?: {
     icon: string;
     tooltip: string;
-    click: (item?: ListItem) => unknown;
+    click: (item?: WGOListItem) => unknown;
   }[];
-  onAddItem: (item: ListItem, callback: () => {}) => unknown;
-  onEditItem: (item: ListItem, callback: () => {}) => unknown;
-  onDeleteItem: (item: ListItem, index: number) => unknown;
-  filterItems?: (items: ListItem[], filter: ListItem) => ListItem[];
+  onAddItem: (item: WGOListItem, callback: () => {}) => unknown;
+  onEditItem: (item: WGOListItem, callback: () => {}) => unknown;
+  onDeleteItem: (item: WGOListItem, index: number) => unknown;
+  filterItems?: (items: WGOListItem[], filter: WGOListItem) => WGOListItem[];
 }
 
 export const DefaultWGOExpandableListOptions: WGOExpandableListOptions = {
   showAddButton: true,
-  labelshowAddButton: "Nuovo",
+  labelShowAddButton: "Nuovo",
   textDeleteConfirm: "Confermi la cancellazione",
   disableFullscreen: false,
   disableExportExcel: false,
@@ -80,7 +80,7 @@ export const DefaultWGOExpandableListOptions: WGOExpandableListOptions = {
   disableFilters: false,
   headerButtons: [],
   expandedButtons: [],
-  onAddItem: (item: ListItem) => {},
-  onEditItem: (item: ListItem) => {},
-  onDeleteItem: (item: ListItem) => {},
+  onAddItem: (item: WGOListItem) => {},
+  onEditItem: (item: WGOListItem) => {},
+  onDeleteItem: (item: WGOListItem) => {},
 };

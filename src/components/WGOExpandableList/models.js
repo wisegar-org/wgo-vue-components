@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DefaultWGOExpandableListOptions = void 0;
 exports.DefaultWGOExpandableListOptions = {
     showAddButton: true,
-    labelshowAddButton: "Nuovo",
+    labelShowAddButton: "Nuovo",
     textDeleteConfirm: "Confermi la cancellazione",
     disableFullscreen: false,
     disableExportExcel: false,

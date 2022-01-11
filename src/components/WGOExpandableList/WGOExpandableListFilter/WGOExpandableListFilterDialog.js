@@ -16,7 +16,7 @@ let WGOExpandableListFilterDialog = class WGOExpandableListFilterDialog extends 
             fullHeight: false,
             fullWidth: false,
             styleDialog: this.styleDialog,
-            width: '800px'
+            width: "800px",
         };
     }
     changeStatus() {
@@ -56,7 +56,7 @@ let WGOExpandableListFilterDialog = class WGOExpandableListFilterDialog extends 
     (0, tslib_1.__metadata)("design:type", Function)
 ], WGOExpandableListFilterDialog.prototype, "applyFilter", void 0);
 (0, tslib_1.__decorate)([
-    (0, vue_property_decorator_1.Watch)('open'),
+    (0, vue_property_decorator_1.Watch)("open"),
     (0, tslib_1.__metadata)("design:type", Function),
     (0, tslib_1.__metadata)("design:paramtypes", []),
     (0, tslib_1.__metadata)("design:returntype", void 0)
@@ -65,8 +65,8 @@ WGOExpandableListFilterDialog = (0, tslib_1.__decorate)([
     (0, vue_property_decorator_1.Component)({
         components: {
             WGOExpandableListFilter: WGOExpandableListFilter_vue_1.default,
-            Dialog: WGODialog_vue_1.default
-        }
+            Dialog: WGODialog_vue_1.default,
+        },
     })
 ], WGOExpandableListFilterDialog);
 exports.default = WGOExpandableListFilterDialog;

@@ -17,7 +17,7 @@
             class="q-mr-md"
             color="primary"
             icon="add"
-            :label="options.labelshowAddButton"
+            :label="options.labelShowAddButton"
             @click="(itemForm) => addItem(itemForm, closeDialog)"
           />
         </slot>

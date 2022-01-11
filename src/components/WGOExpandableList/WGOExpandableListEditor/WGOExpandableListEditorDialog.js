@@ -15,7 +15,7 @@ let WGOExpandableListEditorDialog = class WGOExpandableListEditorDialog extends 
             hideButtons: true,
             fullHeight: false,
             fullWidth: false,
-            styleDialog: this.styleDialog
+            styleDialog: this.styleDialog,
         };
     }
     changeStatus() {
@@ -55,7 +55,7 @@ let WGOExpandableListEditorDialog = class WGOExpandableListEditorDialog extends 
     (0, tslib_1.__metadata)("design:type", Function)
 ], WGOExpandableListEditorDialog.prototype, "onSaveItem", void 0);
 (0, tslib_1.__decorate)([
-    (0, vue_property_decorator_1.Watch)('open'),
+    (0, vue_property_decorator_1.Watch)("open"),
     (0, tslib_1.__metadata)("design:type", Function),
     (0, tslib_1.__metadata)("design:paramtypes", []),
     (0, tslib_1.__metadata)("design:returntype", void 0)
@@ -64,8 +64,8 @@ WGOExpandableListEditorDialog = (0, tslib_1.__decorate)([
     (0, vue_property_decorator_1.Component)({
         components: {
             Dialog: WGODialog_vue_1.default,
-            WGOExpandableListEditor: WGOExpandableListEditor_vue_1.default
-        }
+            WGOExpandableListEditor: WGOExpandableListEditor_vue_1.default,
+        },
     })
 ], WGOExpandableListEditorDialog);
 exports.default = WGOExpandableListEditorDialog;

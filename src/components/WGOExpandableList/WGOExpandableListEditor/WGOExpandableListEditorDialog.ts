@@ -1,14 +1,14 @@
-import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
-import { IWGODialogOptions } from '../../../models';
-import Dialog from '../../WGODialog/WGODialog.vue';
-import { ListItem, PropToEdit } from '../models';
-import WGOExpandableListEditor from './WGOExpandableListEditor.vue';
+import { Vue, Component, Prop, Watch } from "vue-property-decorator";
+import { IWGODialogOptions } from "../../../models";
+import Dialog from "../../WGODialog/WGODialog.vue";
+import { WGOListItem, WGOPropToEdit } from "../models";
+import WGOExpandableListEditor from "./WGOExpandableListEditor.vue";
 
 @Component({
   components: {
     Dialog,
-    WGOExpandableListEditor
-  }
+    WGOExpandableListEditor,
+  },
 })
 export default class WGOExpandableListEditorDialog extends Vue {
   @Prop({ default: false }) open!: boolean;
@@ -16,9 +16,9 @@ export default class WGOExpandableListEditorDialog extends Vue {
   @Prop() icon!: string;
   @Prop() styleDialog!: string;
   @Prop({ default: () => {} }) close!: () => unknown;
-  @Prop() item!: ListItem;
-  @Prop({ default: () => [] }) propsEditor!: PropToEdit[];
-  @Prop({ default: () => {} }) onSaveItem!: (item: ListItem) => unknown;
+  @Prop() item!: WGOListItem;
+  @Prop({ default: () => [] }) propsEditor!: WGOPropToEdit[];
+  @Prop({ default: () => {} }) onSaveItem!: (item: WGOListItem) => unknown;
 
   options: IWGODialogOptions = {
     title: this.title,
@@ -28,10 +28,10 @@ export default class WGOExpandableListEditorDialog extends Vue {
     hideButtons: true,
     fullHeight: false,
     fullWidth: false,
-    styleDialog: this.styleDialog
+    styleDialog: this.styleDialog,
   };
 
-  @Watch('open')
+  @Watch("open")
   changeStatus() {
     this.options = { ...this.options, open: this.open };
   }
