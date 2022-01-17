@@ -15,6 +15,7 @@ import WGOInputPlaneText from "../components/WGOInputPlaneText/WGOInputPlaneText
 import WGOInputNumber from "../components/WGOInputNumber/WGOInputNumber.vue";
 import WGOInputDate from "../components/WGOInputDate/WGOInputDate.vue";
 import WGOInputSelect from "../components/WGOInputSelect/WGOInputSelect.vue";
+import WGOInputDrawer from "../components/WGOInputDrawer/WGOInputDrawer.vue";
 
 import WGOExpandableList from "../components/WGOExpandableList/WGOExpandableList.vue";
 import WGOExpandableListHeader from "../components/WGOExpandableList/WGOExpandableListHeader/WGOExpandableListHeader.vue";
@@ -33,6 +34,7 @@ export default ({ app }: any) => {
   Vue.component("wgo-inumber", WGOInputNumber);
   Vue.component("wgo-idate", WGOInputDate);
   Vue.component("wgo-iselect", WGOInputSelect);
+  Vue.component("wgo-idrawer", WGOInputDrawer);
 
   Vue.component("wgo-exp-list", WGOExpandableList);
   Vue.component("wgo-exp-list-header", WGOExpandableListHeader);

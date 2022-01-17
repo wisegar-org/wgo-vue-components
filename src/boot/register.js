@@ -14,6 +14,7 @@ const WGOInputPlaneText_vue_1 = (0, tslib_1.__importDefault)(require("../compone
 const WGOInputNumber_vue_1 = (0, tslib_1.__importDefault)(require("../components/WGOInputNumber/WGOInputNumber.vue"));
 const WGOInputDate_vue_1 = (0, tslib_1.__importDefault)(require("../components/WGOInputDate/WGOInputDate.vue"));
 const WGOInputSelect_vue_1 = (0, tslib_1.__importDefault)(require("../components/WGOInputSelect/WGOInputSelect.vue"));
+const WGOInputDrawer_vue_1 = (0, tslib_1.__importDefault)(require("../components/WGOInputDrawer/WGOInputDrawer.vue"));
 const WGOExpandableList_vue_1 = (0, tslib_1.__importDefault)(require("../components/WGOExpandableList/WGOExpandableList.vue"));
 const WGOExpandableListHeader_vue_1 = (0, tslib_1.__importDefault)(require("../components/WGOExpandableList/WGOExpandableListHeader/WGOExpandableListHeader.vue"));
 const WGOExpandableListFilterLabel_vue_1 = (0, tslib_1.__importDefault)(require("../components/WGOExpandableList/WGOExpandableListFilter/WGOExpandableListFilterLabel.vue"));
@@ -30,6 +31,7 @@ exports.default = ({ app }) => {
     vue_1.default.component("wgo-inumber", WGOInputNumber_vue_1.default);
     vue_1.default.component("wgo-idate", WGOInputDate_vue_1.default);
     vue_1.default.component("wgo-iselect", WGOInputSelect_vue_1.default);
+    vue_1.default.component("wgo-idrawer", WGOInputDrawer_vue_1.default);
     vue_1.default.component("wgo-exp-list", WGOExpandableList_vue_1.default);
     vue_1.default.component("wgo-exp-list-header", WGOExpandableListHeader_vue_1.default);
     vue_1.default.component("wgo-exp-list-filter-lab", WGOExpandableListFilterLabel_vue_1.default);
