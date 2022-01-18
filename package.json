@@ -1,8 +1,8 @@
 {
   "name": "@wisegar-org/quasar-app-extension-wgo-vue-components",
   "version": "0.0.1-31",
-  "description": "A Quasar App Extension",
-  "author": "Yariel Rodriguez <info@wisegar.org>",
+  "description": "Quasar Vue Components Extension",
+  "author": "Wisegar Development Group <info@wisegar.org>",
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
