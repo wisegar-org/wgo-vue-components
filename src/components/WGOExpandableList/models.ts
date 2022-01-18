@@ -53,6 +53,7 @@ export interface WGOExpandableListOptions {
   bordered?: boolean;
   maxLabels?: number;
   maxLines?: number;
+  localStoreKey?: string;
   headerButtons?: {
     icon: string;
     tooltip: string;

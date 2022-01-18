@@ -128,12 +128,34 @@ let WGOExpandableList = class WGOExpandableList extends vue_property_decorator_1
         });
         return result;
     }
+    changeProps() {
+        if (this.options.localStoreKey) {
+            const items = this.propsEditor.map((item) => ({
+                prop: item.prop,
+                visible: item.visible,
+            }));
+            localStorage.setItem(this.options.localStoreKey, JSON.stringify(items));
+        }
+    }
+    loadPorpsVisibleStatus() {
+        if (this.options.localStoreKey) {
+            const storageStr = localStorage.getItem(this.options.localStoreKey);
+            const items = storageStr
+                ? JSON.parse(storageStr)
+                : [];
+            items.map((item, index) => {
+                if (this.propsEditor[index].prop === item.prop)
+                    this.propsEditor[index].visible = item.visible;
+            });
+        }
+    }
     toggleFullScreen() {
         const target = this.$refs.viewCard;
         this.$q.fullscreen.toggle(target.$el);
     }
     mounted() {
         return (0, tslib_1.__awaiter)(this, void 0, void 0, function* () {
+            this.loadPorpsVisibleStatus();
             this.addResize(this.onResize);
         });
     }
@@ -190,12 +212,18 @@ let WGOExpandableList = class WGOExpandableList extends vue_property_decorator_1
     (0, tslib_1.__metadata)("design:returntype", void 0)
 ], WGOExpandableList.prototype, "onFilterChange", null);
 (0, tslib_1.__decorate)([
-    (0, vue_property_decorator_1.Watch)("watchProps", { immediate: false }),
+    (0, vue_property_decorator_1.Watch)("watchProps", { immediate: false, deep: true }),
     (0, vue_property_decorator_1.Watch)("filterStr", { immediate: false }),
     (0, tslib_1.__metadata)("design:type", Function),
     (0, tslib_1.__metadata)("design:paramtypes", []),
     (0, tslib_1.__metadata)("design:returntype", void 0)
 ], WGOExpandableList.prototype, "resizeMenu", null);
+(0, tslib_1.__decorate)([
+    (0, vue_property_decorator_1.Watch)("propsEditor", { deep: true }),
+    (0, tslib_1.__metadata)("design:type", Function),
+    (0, tslib_1.__metadata)("design:paramtypes", []),
+    (0, tslib_1.__metadata)("design:returntype", void 0)
+], WGOExpandableList.prototype, "changeProps", null);
 WGOExpandableList = (0, tslib_1.__decorate)([
     (0, vue_property_decorator_1.Component)({
         components: {

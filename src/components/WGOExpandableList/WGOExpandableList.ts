@@ -106,7 +106,7 @@ export default class WGOExpandableList extends Vue {
     window.removeEventListener("resize", onResizeFn);
   }
 
-  @Watch("watchProps", { immediate: false })
+  @Watch("watchProps", { immediate: false, deep: true })
   @Watch("filterStr", { immediate: false })
   resizeMenu() {
     setTimeout(this.resizeCard, 400);
@@ -173,12 +173,37 @@ export default class WGOExpandableList extends Vue {
     return result;
   }
 
+  @Watch("propsEditor", { deep: true })
+  changeProps() {
+    if (this.options.localStoreKey) {
+      const items = this.propsEditor.map((item) => ({
+        prop: item.prop,
+        visible: item.visible,
+      }));
+      localStorage.setItem(this.options.localStoreKey, JSON.stringify(items));
+    }
+  }
+
+  loadPorpsVisibleStatus() {
+    if (this.options.localStoreKey) {
+      const storageStr = localStorage.getItem(this.options.localStoreKey);
+      const items = storageStr
+        ? (JSON.parse(storageStr) as { prop: string; visible: boolean }[])
+        : [];
+      items.map((item, index) => {
+        if (this.propsEditor[index].prop === item.prop)
+          this.propsEditor[index].visible = item.visible;
+      });
+    }
+  }
+
   toggleFullScreen() {
     const target = this.$refs.viewCard as Vue;
     this.$q.fullscreen.toggle(target.$el as any);
   }
 
   async mounted() {
+    this.loadPorpsVisibleStatus();
     this.addResize(this.onResize);
   }
 
