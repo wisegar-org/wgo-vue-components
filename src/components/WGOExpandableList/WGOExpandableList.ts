@@ -1,16 +1,16 @@
-import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
-import Expanded from '../WGOExpanded/WGOExpanded.vue';
+import { Vue, Component, Prop, Watch } from "vue-property-decorator";
+import Expanded from "../WGOExpanded/WGOExpanded.vue";
 import {
   WGOListItem,
   WGOPropToEdit,
   DefaultWGOExpandableListOptions,
-  WGOExpandableListOptions
-} from './models';
-import WGOExpandableListEditor from './WGOExpandableListEditor/WGOExpandableListEditor.vue';
-import WGOExpandableListEditorDialog from './WGOExpandableListEditor/WGOExpandableListEditorDialog.vue';
-import Loader from '../WGOLoading/WGOLoading.vue';
-import WGOExpandableListFilterLabel from './WGOExpandableListFilter/WGOExpandableListFilterLabel.vue';
-import WGOExpandableListHeader from './WGOExpandableListHeader/WGOExpandableListHeader.vue';
+  WGOExpandableListOptions,
+} from "./models";
+import WGOExpandableListEditor from "./WGOExpandableListEditor/WGOExpandableListEditor.vue";
+import WGOExpandableListEditorDialog from "./WGOExpandableListEditor/WGOExpandableListEditorDialog.vue";
+import Loader from "../WGOLoading/WGOLoading.vue";
+import WGOExpandableListFilterLabel from "./WGOExpandableListFilter/WGOExpandableListFilterLabel.vue";
+import WGOExpandableListHeader from "./WGOExpandableListHeader/WGOExpandableListHeader.vue";
 
 @Component({
   components: {
@@ -19,19 +19,19 @@ import WGOExpandableListHeader from './WGOExpandableListHeader/WGOExpandableList
     WGOExpandableListEditorDialog,
     Loader,
     WGOExpandableListFilterLabel,
-    WGOExpandableListHeader
-  }
+    WGOExpandableListHeader,
+  },
 })
 export default class WGOExpandableList extends Vue {
-  @Prop({ default: '' }) title!: string;
+  @Prop({ default: "" }) title!: string;
   @Prop({ default: () => [] }) items!: WGOListItem[];
   @Prop({ default: () => [] }) allItems!: WGOListItem[];
   @Prop({ default: () => [] }) propsEditor!: WGOPropToEdit[];
-  @Prop({ default: 'info' }) icon!: string;
+  @Prop({ default: "info" }) icon!: string;
   @Prop({ default: () => DefaultWGOExpandableListOptions })
   options!: WGOExpandableListOptions;
   @Prop({ default: false }) loading!: boolean;
-  @Prop({ default: '' }) filterStr!: string;
+  @Prop({ default: "" }) filterStr!: string;
   @Prop() watchProps!: any;
 
   filterItems: WGOListItem[] = this.items;
@@ -41,14 +41,10 @@ export default class WGOExpandableList extends Vue {
 
   public cardHeight = 500;
   public listHeight = 300;
-  id_button =
-    'button-' +
-    Math.random()
-      .toString(20)
-      .substring(2, 10);
+  id_button = "button-" + Math.random().toString(20).substring(2, 10);
 
-  @Watch('filter')
-  @Watch('items')
+  @Watch("filter")
+  @Watch("items")
   onFilterChange() {
     this.filterItems = this.options.filterItems
       ? this.options.filterItems(this.items, this.filter)
@@ -60,9 +56,11 @@ export default class WGOExpandableList extends Vue {
   }
 
   openFilter() {
-    ((this.$refs.filter as any) as {
-      onShowDialog: () => unknown;
-    }).onShowDialog();
+    (
+      this.$refs.filter as any as {
+        onShowDialog: () => unknown;
+      }
+    ).onShowDialog();
   }
 
   addItem(item: WGOListItem | null = null) {
@@ -77,20 +75,20 @@ export default class WGOExpandableList extends Vue {
   deleteItem(item: WGOListItem, index: number) {
     this.$q
       .dialog({
-        title: 'Confirm',
+        title: "Confirm",
         message: this.options.textDeleteConfirm,
         persistent: true,
-        focus: 'cancel',
+        focus: "cancel",
         ok: {
-          color: 'primary',
-          label: 'Si',
-          tabindex: 0
+          color: "primary",
+          label: "Si",
+          tabindex: 0,
         },
         cancel: {
           flat: true,
-          label: 'No',
-          tabindex: 1
-        }
+          label: "No",
+          tabindex: 1,
+        },
       })
       .onOk(async () => {
         await this.options.onDeleteItem(item, index);
@@ -98,18 +96,18 @@ export default class WGOExpandableList extends Vue {
   }
 
   public addResize(onResizeFn: any) {
-    window.addEventListener('resize', onResizeFn);
+    window.addEventListener("resize", onResizeFn);
     this.$nextTick(() => {
       setTimeout(onResizeFn, 150);
     });
   }
 
   public removeResize(onResizeFn: any) {
-    window.removeEventListener('resize', onResizeFn);
+    window.removeEventListener("resize", onResizeFn);
   }
 
-  @Watch('watchProps', { immediate: false, deep: true })
-  @Watch('filterStr', { immediate: false })
+  @Watch("watchProps", { immediate: false, deep: true })
+  @Watch("filterStr", { immediate: false })
   resizeMenu() {
     setTimeout(this.resizeCard, 400);
   }
@@ -143,7 +141,6 @@ export default class WGOExpandableList extends Vue {
         defaultplaceholderExpListPx;
       const filterH = filterLabel.offsetHeight || 0;
       const paginationH = pagination.offsetHeight || 0;
-      debugger;
       this.listHeight =
         window.innerHeight - h - paginationH - defaultBottomPx - 20 - filterH;
     } else {
@@ -153,17 +150,17 @@ export default class WGOExpandableList extends Vue {
 
   getLabels(item: WGOListItem) {
     const result: { label: string; tooltip?: string; columns: number }[] = [];
-    this.propsEditor.forEach(prop => {
+    this.propsEditor.forEach((prop) => {
       if (prop.required || prop.visible) {
         const value = prop.value
           ? prop.value(item)
           : `${(item as any)[prop.prop]}`;
-        let tooltip = '';
+        let tooltip = "";
         const columns = prop.columns || 1;
 
         if (prop.tooltip) {
           tooltip =
-            typeof prop.tooltip === 'string'
+            typeof prop.tooltip === "string"
               ? prop.tooltip
               : prop.tooltip(item);
         }
@@ -174,12 +171,12 @@ export default class WGOExpandableList extends Vue {
     return result;
   }
 
-  @Watch('propsEditor', { deep: true })
+  @Watch("propsEditor", { deep: true })
   changeProps() {
     if (this.options.localStoreKey) {
-      const items = this.propsEditor.map(item => ({
+      const items = this.propsEditor.map((item) => ({
         prop: item.prop,
-        visible: item.visible
+        visible: item.visible,
       }));
       localStorage.setItem(this.options.localStoreKey, JSON.stringify(items));
     }
@@ -213,6 +210,6 @@ export default class WGOExpandableList extends Vue {
   }
 
   onResize() {
-    setTimeout(this.resizeCard, 100);
+    setTimeout(this.resizeCard, 50);
   }
 }
