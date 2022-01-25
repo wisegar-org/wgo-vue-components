@@ -1,10 +1,10 @@
-import { Vue, Component, Prop, Watch } from "vue-property-decorator";
-import WGOSimpleExpanded from "./WGOSimpleExpanded.vue";
+import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
+import WGOSimpleExpanded from './WGOSimpleExpanded.vue';
 
 @Component({
   components: {
-    WGOSimpleExpanded,
-  },
+    WGOSimpleExpanded
+  }
 })
 export default class WGOExpanded extends Vue {
   @Prop() label!: string;
@@ -19,13 +19,13 @@ export default class WGOExpanded extends Vue {
   @Prop({ default: 2 }) maxLines!: number;
 
   labelsLength = this.labels
-    .map((label) => (typeof label === "string" ? 1 : label.columns || 1))
+    .map(label => (typeof label === 'string' ? 1 : label.columns || 1))
     .reduce((a, b) => a + b, 0);
 
-  @Watch("labels")
+  @Watch('labels')
   setLabelsLength() {
     this.labelsLength = this.labels
-      .map((label) => (typeof label === "string" ? 1 : label.columns || 1))
+      .map(label => (typeof label === 'string' ? 1 : label.columns || 1))
       .reduce((a, b) => a + b, 0);
   }
 
@@ -34,7 +34,7 @@ export default class WGOExpanded extends Vue {
   }
 
   clickInHeader() {
-    const expanded = this.$refs.expanded as unknown as {
+    const expanded = (this.$refs.expanded as unknown) as {
       invertValue: () => unknown;
     };
     if (!!expanded && !!expanded.invertValue) expanded.invertValue();
@@ -42,25 +42,24 @@ export default class WGOExpanded extends Vue {
 
   getLabelsClass(index: number, columns = 1) {
     if (this.labels.length === 1) {
-      return "col-12 col-sm-12 q-ml-none q-pl-sm";
+      return 'col-12 col-sm-12 q-ml-none q-pl-sm';
     }
     const maxColumns = this.getDisplayInSM()
       ? Math.min(this.maxLabels, this.labelsLength)
       : 2;
     const value = !this.getDisplayInXS() ? 12 / maxColumns : 6;
-    return `col-${index < this.maxLines ? 12 : 0} col-sm-${
-      value * columns
-    } q-ml-none q-pl-sm`;
+    return `col-${index < this.maxLines ? 12 : 0} col-sm-${value *
+      columns} q-ml-none q-pl-sm`;
   }
   isStringLabel(label: { label: string; tooltip: string } | string) {
-    return typeof label === "string";
+    return typeof label === 'string';
   }
 
   getLabelsStyle(index: number) {
     const isOnlySM = !this.getDisplayInSM();
     return index >= this.maxLines && isOnlySM
-      ? "display: none;"
-      : "margin-left: 0 !important;";
+      ? 'display: none;'
+      : 'margin-left: 0 !important;';
   }
 
   getDisplayInXS() {
@@ -69,5 +68,9 @@ export default class WGOExpanded extends Vue {
 
   getDisplayInSM() {
     return this.$q.screen.gt.sm;
+  }
+
+  isMobile() {
+    return this.$q.platform.is.mobile || !this.getDisplayInXS();
   }
 }

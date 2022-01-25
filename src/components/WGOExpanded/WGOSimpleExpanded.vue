@@ -1,10 +1,13 @@
 <template>
   <q-expansion-item
     popup
+    dense-toggle
+    expand-icon-class="testClass"
     :group="group"
     :expand-icon-toggle="getExpandedWithIcon()"
     header-class="q-px-sm q-py-none"
     v-model="showPopup"
+    :switch-toggle-side="switchToggle"
   >
     <template v-slot:header class="q-pa-sm q-ma-sm">
       <slot name="header">
@@ -66,4 +69,4 @@
   </q-expansion-item>
 </template>
 
-<script lang="ts" src="./WGOSimpleExpanded.ts" />
+<script lang="ts" src="./WGOSimpleExpanded.js" />

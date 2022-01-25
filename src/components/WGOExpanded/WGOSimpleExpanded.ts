@@ -1,4 +1,4 @@
-import { Vue, Component, Prop, Watch } from "vue-property-decorator";
+import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 
 @Component({})
 export default class WGOSimpleExpanded extends Vue {
@@ -11,6 +11,7 @@ export default class WGOSimpleExpanded extends Vue {
   @Prop() group!: string;
   @Prop() iconUrl!: string;
   @Prop({ default: false }) expandIcon!: boolean;
+  @Prop({ default: false }) switchToggle!: boolean;
   @Prop({ default: 4 }) maxLabels!: number;
   @Prop({ default: 2 }) maxLines!: number;
 
@@ -24,14 +25,14 @@ export default class WGOSimpleExpanded extends Vue {
     super();
     this.showPopup = false;
     this.labelsLength = (this.labels || [])
-      .map((label) => (typeof label === "string" ? 1 : label.columns || 1))
+      .map(label => (typeof label === 'string' ? 1 : label.columns || 1))
       .reduce((a, b) => a + b, 0);
   }
 
-  @Watch("labels")
+  @Watch('labels')
   setLabelsLength() {
     this.labelsLength = this.labels
-      .map((label) => (typeof label === "string" ? 1 : label.columns || 1))
+      .map(label => (typeof label === 'string' ? 1 : label.columns || 1))
       .reduce((a, b) => a + b, 0);
   }
 
@@ -50,25 +51,24 @@ export default class WGOSimpleExpanded extends Vue {
 
   getLabelsClass(index: number, columns = 1) {
     if (this.labels.length === 1) {
-      return "col-12 col-sm-12 q-ml-none q-pl-sm";
+      return 'col-12 col-sm-12 q-ml-none q-pl-sm';
     }
     const maxColumns = this.getDisplayInSM()
       ? Math.min(this.maxLabels, this.labelsLength)
       : 2;
     const value = !this.getDisplayInXS() ? 12 / maxColumns : 6;
-    return `col-${index < this.maxLines ? 12 : 0} col-sm-${
-      value * columns
-    } q-ml-none q-pl-sm`;
+    return `col-${index < this.maxLines ? 12 : 0} col-sm-${value *
+      columns} q-ml-none q-pl-sm`;
   }
 
   getLabelsStyle(index: number) {
     const isOnlySM = !this.getDisplayInSM();
     return index >= this.maxLines && isOnlySM
-      ? "display: none;"
-      : "margin-left: 0 !important;";
+      ? 'display: none;'
+      : 'margin-left: 0 !important;';
   }
   isStringLabel(label: { label: string; tooltip: string } | string) {
-    return typeof label === "string";
+    return typeof label === 'string';
   }
 
   getDisplayInXS() {

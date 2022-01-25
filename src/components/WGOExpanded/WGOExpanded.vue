@@ -1,5 +1,10 @@
 <template>
-  <WGOSimpleExpanded ref="expanded" :group="group" :expandIcon="true">
+  <WGOSimpleExpanded
+    ref="expanded"
+    :group="group"
+    :expandIcon="true"
+    :switchToggle="!isMobile()"
+  >
     <template slot="header">
       <q-item-section
         v-if="getIcon() && !getDisplayInXS()"
@@ -9,15 +14,7 @@
       >
         <q-avatar :icon="getIcon()" />
       </q-item-section>
-      <q-item-section v-if="getDisplayInXS()" avatar class="col-auto">
-        <q-btn flat unelevated color="primary" icon="more_vert" dense>
-          <q-menu anchor="top right" self="top left">
-            <q-list v-close-popup>
-              <slot name="buttons" v-close-popup></slot>
-            </q-list>
-          </q-menu>
-        </q-btn>
-      </q-item-section>
+
       <slot name="labels">
         <q-item-section
           v-if="!labels || !labels.length"
@@ -72,6 +69,15 @@
           <slot name="buttons"></slot>
         </div>
       </q-item-section>
+      <q-item-section v-if="getDisplayInXS()" avatar class="col-auto">
+        <q-btn flat unelevated color="primary" icon="more_vert" dense>
+          <q-menu anchor="top start" self="top right">
+            <q-list v-close-popup>
+              <slot name="buttons" v-close-popup></slot>
+            </q-list>
+          </q-menu>
+        </q-btn>
+      </q-item-section>
     </template>
     <template slot="content">
       <slot name="content"></slot>
@@ -79,4 +85,4 @@
   </WGOSimpleExpanded>
 </template>
 
-<script lang="ts" src="./WGOExpanded.ts" />
+<script lang="ts" src="./WGOExpanded.js" />
