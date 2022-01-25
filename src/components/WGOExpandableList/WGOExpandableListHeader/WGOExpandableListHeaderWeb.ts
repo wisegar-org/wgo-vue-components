@@ -5,16 +5,22 @@ import {
   WGOListItem,
   WGOPropToEdit
 } from '../models';
-import WGOExpandableListHeaderMobile from './WGOExpandableListHeaderMobile.vue';
-import WGOExpandableListHeaderWeb from './WGOExpandableListHeaderWeb.vue';
+import WGOExpandableListExportClipboardButton from '../WGOExpandableListButtons/WGOExpandableListExportClipboardButton.vue';
+import WGOExpandableListExportCSVButton from '../WGOExpandableListButtons/WGOExpandableListExportCSVButton.vue';
+import WGOExpandableListExportExcelButton from '../WGOExpandableListButtons/WGOExpandableListExportExcelButton.vue';
+import WGOExpandableListFilterButton from '../WGOExpandableListButtons/WGOExpandableListFilterButton.vue';
+import WGOExpandableListSelectColumnsButtton from '../WGOExpandableListButtons/WGOExpandableListSelectColumnsButtton.vue';
 
 @Component({
   components: {
-    WGOExpandableListHeaderMobile,
-    WGOExpandableListHeaderWeb
+    WGOExpandableListExportClipboardButton,
+    WGOExpandableListExportCSVButton,
+    WGOExpandableListExportExcelButton,
+    WGOExpandableListFilterButton,
+    WGOExpandableListSelectColumnsButtton
   }
 })
-export default class WGOExpandableListHeader extends Vue {
+export default class WGOExpandableListHeaderWeb extends Vue {
   @Prop({ default: '' }) title!: string;
   @Prop({ default: () => [] }) propsEditor!: WGOPropToEdit[];
   @Prop({ default: () => DefaultWGOExpandableListOptions })
@@ -34,8 +40,4 @@ export default class WGOExpandableListHeader extends Vue {
     Math.random()
       .toString(20)
       .substring(2, 10);
-
-  isMobile() {
-    return this.$q.platform.is.mobile || this.$q.screen.xs;
-  }
 }
