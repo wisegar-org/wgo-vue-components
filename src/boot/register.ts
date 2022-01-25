@@ -18,6 +18,7 @@ import WGOInputSelect from "../components/WGOInputSelect/WGOInputSelect.vue";
 import WGOInputDrawer from "../components/WGOInputDrawer/WGOInputDrawer.vue";
 
 import WGOExpandableList from "../components/WGOExpandableList/WGOExpandableList.vue";
+import WGOExpandableListCard from "../components/WGOExpandableList/WGOExpandableListCard.vue";
 import WGOExpandableListHeader from "../components/WGOExpandableList/WGOExpandableListHeader/WGOExpandableListHeader.vue";
 import WGOExpandableListFilterLabel from "../components/WGOExpandableList/WGOExpandableListFilter/WGOExpandableListFilterLabel.vue";
 // we globally register our component with Vue
@@ -37,6 +38,7 @@ export default ({ app }: any) => {
   Vue.component("wgo-idrawer", WGOInputDrawer);
 
   Vue.component("wgo-exp-list", WGOExpandableList);
+  Vue.component("wgo-exp-list-card", WGOExpandableListCard);
   Vue.component("wgo-exp-list-header", WGOExpandableListHeader);
   Vue.component("wgo-exp-list-filter-lab", WGOExpandableListFilterLabel);
 };
