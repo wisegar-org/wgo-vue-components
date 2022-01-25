@@ -24,4 +24,4 @@
   </q-card-section>
 </template>
 
-<script lang="ts" src="./WGOExpandableListFilterLabel.ts" />
+<script lang="ts" src="./WGOExpandableListFilterLabel.js" />

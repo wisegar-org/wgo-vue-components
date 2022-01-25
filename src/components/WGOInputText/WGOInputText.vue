@@ -25,4 +25,4 @@
     </template>
   </q-input>
 </template>
-<script lang="ts" src="./WGOInputText.ts" />
+<script lang="ts" src="./WGOInputText.js" />

@@ -12,7 +12,7 @@
         :items="allItems && allItems.length > 0 ? allItems : items"
         :options="options"
         :propsEditor="propsEditor"
-        :addItem="itemForm => addItem(itemForm, closeDialog)"
+        :addItem="(itemForm) => addItem(itemForm, closeDialog)"
         :filter="filter"
         :applyFilter="applyFilter"
         :toggleFullScreen="toggleFullScreen"
@@ -56,7 +56,7 @@
                       :item="item"
                       :reactive="options.editReactive"
                       :onSaveItem="
-                        itemForm => options.onEditItem(itemForm, closeDialog)
+                        (itemForm) => options.onEditItem(itemForm, closeDialog)
                       "
                     />
                   </slot>
@@ -120,10 +120,10 @@
       :close="() => (openDialog = false)"
       :item="selectedItem"
       :propsEditor="propsEditor"
-      :onSaveItem="itemForm => options.onAddItem(itemForm, closeDialog)"
+      :onSaveItem="(itemForm) => options.onAddItem(itemForm, closeDialog)"
     />
     <Loader :loading="loading" />
   </div>
 </template>
 
-<script lang="ts" src="./WGOExpandableList.ts" />
+<script lang="ts" src="./WGOExpandableList.js" />

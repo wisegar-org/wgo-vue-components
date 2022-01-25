@@ -65,4 +65,4 @@
   </q-form>
 </template>
 
-<script lang="ts" src="./WGOExpandableListEditor.ts" />
+<script lang="ts" src="./WGOExpandableListEditor.js" />

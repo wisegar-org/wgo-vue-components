@@ -23,4 +23,4 @@
   </q-select>
 </template>
 
-<script lang="ts" src="./WGOInputSelect.ts" />
+<script lang="ts" src="./WGOInputSelect.js" />

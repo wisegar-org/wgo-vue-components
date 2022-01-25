@@ -22,11 +22,9 @@
         </q-toolbar>
         <q-card-section class="scroll q-pa-none">
           <q-scroll-area
-            :style="
-              `max-height: ${
-                options.height ? options.height : contentHeight
-              }; height: ${contentHeight}`
-            "
+            :style="`max-height: ${
+              options.height ? options.height : contentHeight
+            }; height: ${contentHeight}`"
             ref="placeholder2"
           >
             <slot ref="slot"></slot>
@@ -61,4 +59,4 @@
   </q-dialog>
 </template>
 
-<script lang="ts" src="./WGODialog.ts" />
+<script lang="ts" src="./WGODialog.js" />

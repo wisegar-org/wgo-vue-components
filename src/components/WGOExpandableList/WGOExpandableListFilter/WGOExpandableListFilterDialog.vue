@@ -13,4 +13,4 @@
   </Dialog>
 </template>
 
-<script lang="ts" src="./WGOExpandableListFilterDialog.ts" />
+<script lang="ts" src="./WGOExpandableListFilterDialog.js" />

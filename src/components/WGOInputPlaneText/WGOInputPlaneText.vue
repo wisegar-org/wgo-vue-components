@@ -29,4 +29,4 @@
     </template>
   </q-input>
 </template>
-<script lang="ts" src="./WGOInputPlaneText.ts" />
+<script lang="ts" src="./WGOInputPlaneText.js" />

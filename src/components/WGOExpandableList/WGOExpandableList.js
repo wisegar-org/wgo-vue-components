@@ -18,7 +18,10 @@ let WGOExpandableList = class WGOExpandableList extends vue_property_decorator_1
         this.filter = {};
         this.cardHeight = 500;
         this.listHeight = 300;
-        this.id_button = "button-" + Math.random().toString(20).substring(2, 10);
+        this.id_button = 'button-' +
+            Math.random()
+                .toString(20)
+                .substring(2, 10);
     }
     onFilterChange() {
         this.filterItems = this.options.filterItems
@@ -42,33 +45,33 @@ let WGOExpandableList = class WGOExpandableList extends vue_property_decorator_1
     deleteItem(item, index) {
         this.$q
             .dialog({
-            title: "Confirm",
+            title: 'Confirm',
             message: this.options.textDeleteConfirm,
             persistent: true,
-            focus: "cancel",
+            focus: 'cancel',
             ok: {
-                color: "primary",
-                label: "Si",
-                tabindex: 0,
+                color: 'primary',
+                label: 'Si',
+                tabindex: 0
             },
             cancel: {
                 flat: true,
-                label: "No",
-                tabindex: 1,
-            },
+                label: 'No',
+                tabindex: 1
+            }
         })
             .onOk(() => (0, tslib_1.__awaiter)(this, void 0, void 0, function* () {
             yield this.options.onDeleteItem(item, index);
         }));
     }
     addResize(onResizeFn) {
-        window.addEventListener("resize", onResizeFn);
+        window.addEventListener('resize', onResizeFn);
         this.$nextTick(() => {
             setTimeout(onResizeFn, 150);
         });
     }
     removeResize(onResizeFn) {
-        window.removeEventListener("resize", onResizeFn);
+        window.removeEventListener('resize', onResizeFn);
     }
     resizeMenu() {
         setTimeout(this.resizeCard, 400);
@@ -90,10 +93,9 @@ let WGOExpandableList = class WGOExpandableList extends vue_property_decorator_1
         const placeholderExpList2 = this.$refs.placeholderExpList2;
         const placeholderExpList3 = this.$refs.placeholderExpList3;
         if (this.cardHeight === this.options.minHeight) {
-            const h2 = !!this.$q.platform.is.mobile ? 2 : 1;
             const mobileH = placeholderExpList3 ? 0 : 40;
             const filterH = filterLabel.offsetHeight || 0;
-            this.listHeight = this.options.minHeight - 120 - h2 * mobileH - filterH;
+            this.listHeight = this.options.minHeight - 120 - mobileH - filterH;
         }
         else if (placeholderExpList2) {
             const h = placeholderExpList2.getBoundingClientRect().bottom ||
@@ -110,16 +112,16 @@ let WGOExpandableList = class WGOExpandableList extends vue_property_decorator_1
     }
     getLabels(item) {
         const result = [];
-        this.propsEditor.forEach((prop) => {
+        this.propsEditor.forEach(prop => {
             if (prop.required || prop.visible) {
                 const value = prop.value
                     ? prop.value(item)
                     : `${item[prop.prop]}`;
-                let tooltip = "";
+                let tooltip = '';
                 const columns = prop.columns || 1;
                 if (prop.tooltip) {
                     tooltip =
-                        typeof prop.tooltip === "string"
+                        typeof prop.tooltip === 'string'
                             ? prop.tooltip
                             : prop.tooltip(item);
                 }
@@ -130,9 +132,9 @@ let WGOExpandableList = class WGOExpandableList extends vue_property_decorator_1
     }
     changeProps() {
         if (this.options.localStoreKey) {
-            const items = this.propsEditor.map((item) => ({
+            const items = this.propsEditor.map(item => ({
                 prop: item.prop,
-                visible: item.visible,
+                visible: item.visible
             }));
             localStorage.setItem(this.options.localStoreKey, JSON.stringify(items));
         }
@@ -165,11 +167,11 @@ let WGOExpandableList = class WGOExpandableList extends vue_property_decorator_1
         });
     }
     onResize() {
-        this.resizeCard();
+        setTimeout(this.resizeCard, 100);
     }
 };
 (0, tslib_1.__decorate)([
-    (0, vue_property_decorator_1.Prop)({ default: "" }),
+    (0, vue_property_decorator_1.Prop)({ default: '' }),
     (0, tslib_1.__metadata)("design:type", String)
 ], WGOExpandableList.prototype, "title", void 0);
 (0, tslib_1.__decorate)([
@@ -185,7 +187,7 @@ let WGOExpandableList = class WGOExpandableList extends vue_property_decorator_1
     (0, tslib_1.__metadata)("design:type", Array)
 ], WGOExpandableList.prototype, "propsEditor", void 0);
 (0, tslib_1.__decorate)([
-    (0, vue_property_decorator_1.Prop)({ default: "info" }),
+    (0, vue_property_decorator_1.Prop)({ default: 'info' }),
     (0, tslib_1.__metadata)("design:type", String)
 ], WGOExpandableList.prototype, "icon", void 0);
 (0, tslib_1.__decorate)([
@@ -197,7 +199,7 @@ let WGOExpandableList = class WGOExpandableList extends vue_property_decorator_1
     (0, tslib_1.__metadata)("design:type", Boolean)
 ], WGOExpandableList.prototype, "loading", void 0);
 (0, tslib_1.__decorate)([
-    (0, vue_property_decorator_1.Prop)({ default: "" }),
+    (0, vue_property_decorator_1.Prop)({ default: '' }),
     (0, tslib_1.__metadata)("design:type", String)
 ], WGOExpandableList.prototype, "filterStr", void 0);
 (0, tslib_1.__decorate)([
@@ -205,21 +207,21 @@ let WGOExpandableList = class WGOExpandableList extends vue_property_decorator_1
     (0, tslib_1.__metadata)("design:type", Object)
 ], WGOExpandableList.prototype, "watchProps", void 0);
 (0, tslib_1.__decorate)([
-    (0, vue_property_decorator_1.Watch)("filter"),
-    (0, vue_property_decorator_1.Watch)("items"),
+    (0, vue_property_decorator_1.Watch)('filter'),
+    (0, vue_property_decorator_1.Watch)('items'),
     (0, tslib_1.__metadata)("design:type", Function),
     (0, tslib_1.__metadata)("design:paramtypes", []),
     (0, tslib_1.__metadata)("design:returntype", void 0)
 ], WGOExpandableList.prototype, "onFilterChange", null);
 (0, tslib_1.__decorate)([
-    (0, vue_property_decorator_1.Watch)("watchProps", { immediate: false, deep: true }),
-    (0, vue_property_decorator_1.Watch)("filterStr", { immediate: false }),
+    (0, vue_property_decorator_1.Watch)('watchProps', { immediate: false, deep: true }),
+    (0, vue_property_decorator_1.Watch)('filterStr', { immediate: false }),
     (0, tslib_1.__metadata)("design:type", Function),
     (0, tslib_1.__metadata)("design:paramtypes", []),
     (0, tslib_1.__metadata)("design:returntype", void 0)
 ], WGOExpandableList.prototype, "resizeMenu", null);
 (0, tslib_1.__decorate)([
-    (0, vue_property_decorator_1.Watch)("propsEditor", { deep: true }),
+    (0, vue_property_decorator_1.Watch)('propsEditor', { deep: true }),
     (0, tslib_1.__metadata)("design:type", Function),
     (0, tslib_1.__metadata)("design:paramtypes", []),
     (0, tslib_1.__metadata)("design:returntype", void 0)
@@ -232,8 +234,8 @@ WGOExpandableList = (0, tslib_1.__decorate)([
             WGOExpandableListEditorDialog: WGOExpandableListEditorDialog_vue_1.default,
             Loader: WGOLoading_vue_1.default,
             WGOExpandableListFilterLabel: WGOExpandableListFilterLabel_vue_1.default,
-            WGOExpandableListHeader: WGOExpandableListHeader_vue_1.default,
-        },
+            WGOExpandableListHeader: WGOExpandableListHeader_vue_1.default
+        }
     })
 ], WGOExpandableList);
 exports.default = WGOExpandableList;

@@ -65,4 +65,4 @@
   </div>
 </template>
 
-<script lang="ts" src="./WGOExpandableListFilter.ts" />
+<script lang="ts" src="./WGOExpandableListFilter.js" />

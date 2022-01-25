@@ -34,5 +34,5 @@
     </template>
   </q-input>
 </template>
-<script lang="ts" src="./WGOInputNumber.ts" />
+<script lang="ts" src="./WGOInputNumber.js" />
 <style lang="sass" scoped src="./WGOInputNumber.sass"></style>

@@ -41,4 +41,4 @@
   </div>
 </template>
 
-<script lang="ts" src="./WGOInputDate.ts"></script>
+<script lang="ts" src="./WGOInputDate.js"></script>

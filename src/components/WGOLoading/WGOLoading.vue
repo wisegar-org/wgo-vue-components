@@ -4,4 +4,4 @@
   </q-inner-loading>
 </template>
 
-<script lang="ts" src="./WGOLoading.ts" />
+<script lang="ts" src="./WGOLoading.js" />

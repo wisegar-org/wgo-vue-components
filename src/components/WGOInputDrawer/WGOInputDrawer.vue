@@ -94,4 +94,4 @@
   </div>
 </template>
 
-<script lan="ts" src="./WGOInputDrawer.ts" />
+<script lan="ts" src="./WGOInputDrawer.js" />
