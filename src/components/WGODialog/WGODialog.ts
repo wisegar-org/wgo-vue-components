@@ -37,9 +37,7 @@ export default class WGODialog extends Vue {
         const h =
           element.children[0].children[0].getBoundingClientRect().height;
         height = h > 100 ? Math.min(h + 15, height) : height;
-        debugger;
       }
-      debugger;
       this.contentHeight = `${height}px`;
       if (this.options.afterResize) this.options.afterResize(height);
     }

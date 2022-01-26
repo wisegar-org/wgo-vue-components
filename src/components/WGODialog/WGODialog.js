@@ -27,9 +27,7 @@ let WGODialog = class WGODialog extends vue_property_decorator_1.Vue {
                 const element = vueElement.$el;
                 const h = element.children[0].children[0].getBoundingClientRect().height;
                 height = h > 100 ? Math.min(h + 15, height) : height;
-                debugger;
             }
-            debugger;
             this.contentHeight = `${height}px`;
             if (this.options.afterResize)
                 this.options.afterResize(height);
