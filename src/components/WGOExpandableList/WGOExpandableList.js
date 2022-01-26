@@ -163,7 +163,7 @@ let WGOExpandableList = class WGOExpandableList extends vue_property_decorator_1
         });
     }
     onResize() {
-        setTimeout(this.resizeCard, 50);
+        setTimeout(this.resizeCard, 100);
     }
 };
 (0, tslib_1.__decorate)([

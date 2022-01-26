@@ -210,6 +210,6 @@ export default class WGOExpandableList extends Vue {
   }
 
   onResize() {
-    setTimeout(this.resizeCard, 50);
+    setTimeout(this.resizeCard, 100);
   }
 }

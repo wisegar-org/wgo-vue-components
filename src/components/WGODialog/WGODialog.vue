@@ -5,7 +5,7 @@
     :full-height="options.fullHeight"
     :full-width="options.fullWidth"
   >
-    <q-card class="fit" :style="getStyle()">
+    <q-card :style="getStyle()">
       <q-form class="fit" ref="placeholder">
         <q-toolbar class="bg-primary text-white" ref="title">
           <q-avatar v-if="getIcon()" :icon="getIcon()" />

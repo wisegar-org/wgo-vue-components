@@ -27,7 +27,9 @@ let WGODialog = class WGODialog extends vue_property_decorator_1.Vue {
                 const element = vueElement.$el;
                 const h = element.children[0].children[0].getBoundingClientRect().height;
                 height = h > 100 ? Math.min(h + 15, height) : height;
+                debugger;
             }
+            debugger;
             this.contentHeight = `${height}px`;
             if (this.options.afterResize)
                 this.options.afterResize(height);
@@ -45,7 +47,7 @@ let WGODialog = class WGODialog extends vue_property_decorator_1.Vue {
             return this.options.styleDialog;
         else if (this.options.fullWidth) {
             return this.options.height
-                ? `height: ${this.options.height};`
+                ? `height: ${this.options.height}; max-height: ${this.options.height};`
                 : "height: 500px;";
         }
         else if (this.options.fullHeight) {
@@ -54,10 +56,10 @@ let WGODialog = class WGODialog extends vue_property_decorator_1.Vue {
                 : "width: 500px; max-width: 500px;";
         }
         if (this.options.height && this.options.width) {
-            return `height: ${this.options.height}; width: ${this.options.width}; max-width: ${this.options.width};`;
+            return `height: ${this.options.height}; max-height: ${this.options.height}; width: ${this.options.width}; max-width: ${this.options.width};`;
         }
         else if (this.options.height)
-            return `height: ${this.options.height}; width: 500px; max-width: 500px;`;
+            return `height: ${this.options.height}; max-height: ${this.options.height}; width: 500px; max-width: 500px;`;
         else if (this.options.width)
             return `height: fit; width: ${this.options.width}; max-width: ${this.options.width};`;
         return "height: fit; width: 500px; max-width: 500px;";
