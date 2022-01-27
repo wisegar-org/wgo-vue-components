@@ -1,5 +1,11 @@
 <template>
-  <q-btn flat dense color="primary" icon="format_list_bulleted">
+  <q-btn
+    flat
+    dense
+    color="primary"
+    icon="format_list_bulleted"
+    @click="clickBtn"
+  >
     <q-popup-proxy>
       <q-banner>
         <div v-for="(prop, index) in propsEditor" :key="index">
@@ -32,5 +38,10 @@ import { WGOPropToEdit } from "../models";
 export default class WGOExpandableListSelectColumnsButtton extends Vue {
   @Prop({ default: () => [] }) propsEditor!: WGOPropToEdit[];
   @Prop({ default: "Show / Hide columns" }) tooltip!: string;
+  @Prop() showMenu!: () => unknown;
+
+  clickBtn() {
+    if (this.showMenu) this.showMenu();
+  }
 }
 </script>

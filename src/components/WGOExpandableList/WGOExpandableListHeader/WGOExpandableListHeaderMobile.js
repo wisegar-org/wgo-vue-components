@@ -8,17 +8,16 @@ const WGOExpandableListExportCSVButton_vue_1 = (0, tslib_1.__importDefault)(requ
 const WGOExpandableListExportExcelButton_vue_1 = (0, tslib_1.__importDefault)(require("../WGOExpandableListButtons/WGOExpandableListExportExcelButton.vue"));
 const WGOExpandableListFilterButton_vue_1 = (0, tslib_1.__importDefault)(require("../WGOExpandableListButtons/WGOExpandableListFilterButton.vue"));
 const WGOExpandableListSelectColumnsButtton_vue_1 = (0, tslib_1.__importDefault)(require("../WGOExpandableListButtons/WGOExpandableListSelectColumnsButtton.vue"));
+const WGOExpandableListSelectColumnsDialog_vue_1 = (0, tslib_1.__importDefault)(require("../WGOExpandableListButtons/WGOExpandableListSelectColumnsDialog.vue"));
 let WGOExpandableListHeaderMobile = class WGOExpandableListHeaderMobile extends vue_property_decorator_1.Vue {
     constructor() {
         super(...arguments);
-        this.id_button = 'button-header-' +
-            Math.random()
-                .toString(20)
-                .substring(2, 10);
+        this.id_button = "button-header-" + Math.random().toString(20).substring(2, 10);
+        this.showSelectColumns = false;
     }
 };
 (0, tslib_1.__decorate)([
-    (0, vue_property_decorator_1.Prop)({ default: '' }),
+    (0, vue_property_decorator_1.Prop)({ default: "" }),
     (0, tslib_1.__metadata)("design:type", String)
 ], WGOExpandableListHeaderMobile.prototype, "title", void 0);
 (0, tslib_1.__decorate)([
@@ -60,8 +59,9 @@ WGOExpandableListHeaderMobile = (0, tslib_1.__decorate)([
             WGOExpandableListExportCSVButton: WGOExpandableListExportCSVButton_vue_1.default,
             WGOExpandableListExportExcelButton: WGOExpandableListExportExcelButton_vue_1.default,
             WGOExpandableListFilterButton: WGOExpandableListFilterButton_vue_1.default,
-            WGOExpandableListSelectColumnsButtton: WGOExpandableListSelectColumnsButtton_vue_1.default
-        }
+            WGOExpandableListSelectColumnsButtton: WGOExpandableListSelectColumnsButtton_vue_1.default,
+            WGOExpandableListSelectColumnsDialog: WGOExpandableListSelectColumnsDialog_vue_1.default,
+        },
     })
 ], WGOExpandableListHeaderMobile);
 exports.default = WGOExpandableListHeaderMobile;

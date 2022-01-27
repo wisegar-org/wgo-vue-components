@@ -1,6 +1,6 @@
 <template>
   <div class="flex col justify-end">
-    <q-btn flat unelevated color="primary" icon="more_vert" dense>
+    <q-btn flat unelevated color="primary" icon="more_vert" dense close>
       <q-menu anchor="top start" self="top right">
         <q-list v-close-popup>
           <template v-for="(btn, index) in options.headerButtons || []">
@@ -47,6 +47,7 @@
             v-if="!options.disableSelectColumns"
             :propsEditor="propsEditor"
             :tooltip="options.labelSelectColumnsButton"
+            :showMenu="() => (showSelectColumns = true)"
           />
           <q-btn
             v-if="!options.disableFullscreen"
@@ -68,6 +69,10 @@
         </q-list>
       </q-menu>
     </q-btn>
+    <WGOExpandableListSelectColumnsDialog
+      :propsEditor="propsEditor"
+      :showList="showSelectColumns"
+    />
   </div>
 </template>
 
