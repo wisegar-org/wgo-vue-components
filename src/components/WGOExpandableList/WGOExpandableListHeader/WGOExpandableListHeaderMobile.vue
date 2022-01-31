@@ -72,6 +72,8 @@
     <WGOExpandableListSelectColumnsDialog
       :propsEditor="propsEditor"
       :showList="showSelectColumns"
+      :closeDialog="() => (showSelectColumns = false)"
+      :closeLabel="options.labelCloseSelectColumnsDialog"
     />
   </div>
 </template>

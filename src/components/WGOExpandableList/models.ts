@@ -64,6 +64,7 @@ export interface WGOExpandableListOptions {
     tooltip: string;
     click: (item?: WGOListItem) => unknown;
   }[];
+  labelCloseSelectColumnsDialog?: string;
   onAddItem: (item: WGOListItem, callback: () => {}) => unknown;
   onEditItem: (item: WGOListItem, callback: () => {}) => unknown;
   onDeleteItem: (item: WGOListItem, index: number) => unknown;
