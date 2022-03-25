@@ -33,8 +33,9 @@
         <q-card-section
           v-if="!!$slots.buttons || !options.hideButtons"
           class="q-pa-sm"
+          style="position: absolute; bottom: 0px; display: flex; width: 100%"
         >
-          <div class="flex justify-around row" ref="buttons">
+          <div class="flex justify-around row fit" ref="buttons">
             <slot name="buttons"> </slot>
             <q-btn
               v-if="!options.hideButtons"

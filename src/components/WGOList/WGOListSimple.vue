@@ -1,6 +1,11 @@
 <template>
   <div class="q-pa-none" style="min-width: 100%">
-    <q-card ref="viewCard" :bordered="!!options.bordered" :flat="!!options.bordered" :style="`width: 100%;`">
+    <q-card
+      ref="viewCard"
+      :bordered="!!options.bordered"
+      :flat="!!options.bordered"
+      :style="`width: 100%;`"
+    >
       <q-card-section class="q-py-sm" v-if="!!items.length">
         <q-list>
           <WGOListItemTitle
@@ -33,4 +38,4 @@
   </div>
 </template>
 
-<script lang="ts" src="./WGOListSimple.ts" />
+<script lang="ts" src="./WGOListSimple.js" />

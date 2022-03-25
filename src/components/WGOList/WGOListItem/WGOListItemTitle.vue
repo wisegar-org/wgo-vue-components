@@ -7,7 +7,12 @@
       <q-item-section
         v-if="!labels || !labels.length"
         class="self-center"
-        style="text-overflow: ellipsis; overflow: hidden; display: block; white-space: nowrap"
+        style="
+          text-overflow: ellipsis;
+          overflow: hidden;
+          display: block;
+          white-space: nowrap;
+        "
       >
         {{ label }}
       </q-item-section>
@@ -21,7 +26,12 @@
             >
               <div
                 class="q-pl-none full-width text-bold"
-                style="text-overflow: ellipsis; overflow: hidden; display: block; white-space: nowrap"
+                style="
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  display: block;
+                  white-space: nowrap;
+                "
               >
                 {{ isStringLabel(item) ? item : item.label }}
               </div>
@@ -34,11 +44,15 @@
           <slot name="buttons"></slot>
         </div>
       </q-item-section>
-      <q-item-section v-if="getDisplayInXS()" avatar class="col-auto cursor-pointer">
+      <q-item-section
+        v-if="getDisplayInXS()"
+        avatar
+        class="col-auto cursor-pointer"
+      >
         <q-btn flat dense unelevated color="transparent" icon="-" />
       </q-item-section>
     </q-item>
   </q-card>
 </template>
 
-<script lang="ts" src="./WGOListItemTitle.ts" />
+<script lang="ts" src="./WGOListItemTitle.js" />

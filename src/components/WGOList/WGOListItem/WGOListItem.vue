@@ -7,7 +7,12 @@
       <q-item-section
         v-if="!labels || !labels.length"
         class="self-center"
-        style="text-overflow: ellipsis; overflow: hidden; display: block; white-space: nowrap"
+        style="
+          text-overflow: ellipsis;
+          overflow: hidden;
+          display: block;
+          white-space: nowrap;
+        "
       >
         {{ label }}
       </q-item-section>
@@ -21,10 +26,19 @@
             >
               <div
                 class="q-pl-none full-width"
-                style="text-overflow: ellipsis; overflow: hidden; display: block; white-space: nowrap"
+                style="
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  display: block;
+                  white-space: nowrap;
+                "
               >
                 {{ isStringLabel(item) ? item : item.label }}
-                <q-tooltip anchor="bottom start" self="center start" v-if="!isStringLabel(item)">
+                <q-tooltip
+                  anchor="bottom start"
+                  self="center start"
+                  v-if="!isStringLabel(item)"
+                >
                   {{ item.tooltip }}
                 </q-tooltip>
               </div>
@@ -50,4 +64,4 @@
   </q-card>
 </template>
 
-<script lang="ts" src="./WGOListItem.ts" />
+<script lang="ts" src="./WGOListItem.js" />

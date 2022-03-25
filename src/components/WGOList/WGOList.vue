@@ -147,4 +147,4 @@
   </div>
 </template>
 
-<script lang="ts" src="./WGOList.ts" />
+<script lang="ts" src="./WGOList.js" />
