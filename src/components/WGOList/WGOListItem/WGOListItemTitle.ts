@@ -1,30 +1,17 @@
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 
 @Component({})
-export default class WGOSimpleExpanded extends Vue {
+export default class WGOListItemTitle extends Vue {
   @Prop() label!: string;
   @Prop() labels!: (string | { label: string; tooltip: string; columns: number })[];
   @Prop() icon!: string;
-  @Prop() group!: string;
   @Prop() iconUrl!: string;
-  @Prop({ default: false }) expandIcon!: boolean;
-  @Prop({ default: false }) switchToggle!: boolean;
   @Prop({ default: 4 }) maxLabels!: number;
   @Prop({ default: 2 }) maxLines!: number;
 
-  showPopup: boolean;
-  labelsLength: number;
-
-  /**
-   *
-   */
-  constructor() {
-    super();
-    this.showPopup = false;
-    this.labelsLength = (this.labels || [])
-      .map((label) => (typeof label === 'string' ? 1 : label.columns || 1))
-      .reduce((a, b) => a + b, 0);
-  }
+  labelsLength = this.labels
+    .map((label) => (typeof label === 'string' ? 1 : label.columns || 1))
+    .reduce((a, b) => a + b, 0);
 
   @Watch('labels')
   setLabelsLength() {
@@ -37,13 +24,11 @@ export default class WGOSimpleExpanded extends Vue {
     return this.iconUrl ? `img:${this.iconUrl}` : this.icon;
   }
 
-  invertValue() {
-    this.showPopup = !this.showPopup;
-    return this.showPopup;
-  }
-
-  getExpandedWithIcon() {
-    return this.expandIcon;
+  clickInHeader() {
+    const expanded = this.$refs.expanded as unknown as {
+      invertValue: () => unknown;
+    };
+    if (!!expanded && !!expanded.invertValue) expanded.invertValue();
   }
 
   getLabelsClass(index: number, columns = 1) {
@@ -54,13 +39,13 @@ export default class WGOSimpleExpanded extends Vue {
     const value = !this.getDisplayInXS() ? Math.floor(12 / maxColumns) : 6;
     return `col-${index < this.maxLines ? 12 : 0} col-sm-${value * columns} q-ml-none q-pl-sm`;
   }
+  isStringLabel(label: { label: string; tooltip: string } | string) {
+    return typeof label === 'string';
+  }
 
   getLabelsStyle(index: number) {
     const isOnlySM = !this.getDisplayInSM();
     return index >= this.maxLines && isOnlySM ? 'display: none;' : 'margin-left: 0 !important;';
-  }
-  isStringLabel(label: { label: string; tooltip: string } | string) {
-    return typeof label === 'string';
   }
 
   getDisplayInXS() {
@@ -69,6 +54,10 @@ export default class WGOSimpleExpanded extends Vue {
 
   getDisplayInSM() {
     return this.$q.screen.gt.sm;
+  }
+
+  isMobile() {
+    return this.$q.platform.is.mobile || !this.getDisplayInXS();
   }
 
   getJustify() {

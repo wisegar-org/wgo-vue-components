@@ -21,6 +21,8 @@ import WGOExpandableList from "../components/WGOExpandableList/WGOExpandableList
 import WGOExpandableListCard from "../components/WGOExpandableList/WGOExpandableListCard.vue";
 import WGOExpandableListHeader from "../components/WGOExpandableList/WGOExpandableListHeader/WGOExpandableListHeader.vue";
 import WGOExpandableListFilterLabel from "../components/WGOExpandableList/WGOExpandableListFilter/WGOExpandableListFilterLabel.vue";
+import WGOList from "../components/WGOList/WGOList.vue";
+import WGOListSimple from "../components/WGOList/WGOListSimple.vue";
 // we globally register our component with Vue
 export default ({ app }: any) => {
   Vue.component("my-button", MyButton);
@@ -41,4 +43,7 @@ export default ({ app }: any) => {
   Vue.component("wgo-exp-list-card", WGOExpandableListCard);
   Vue.component("wgo-exp-list-header", WGOExpandableListHeader);
   Vue.component("wgo-exp-list-filter-lab", WGOExpandableListFilterLabel);
+
+  Vue.component("wgo-list", WGOList);
+  Vue.component("wgo-list-simple", WGOListSimple);
 };

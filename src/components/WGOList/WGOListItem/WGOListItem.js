@@ -2,8 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const vue_property_decorator_1 = require("vue-property-decorator");
-const WGOSimpleExpanded_vue_1 = (0, tslib_1.__importDefault)(require("./WGOSimpleExpanded.vue"));
-let WGOExpanded = class WGOExpanded extends vue_property_decorator_1.Vue {
+let WGOListItem = class WGOListItem extends vue_property_decorator_1.Vue {
     constructor() {
         super(...arguments);
         this.labelsLength = this.labels
@@ -27,6 +26,7 @@ let WGOExpanded = class WGOExpanded extends vue_property_decorator_1.Vue {
         if (this.labels.length === 1) {
             return 'col-12 col-sm-12 q-ml-none q-pl-sm';
         }
+        debugger;
         const maxColumns = this.getDisplayInSM() ? Math.min(this.maxLabels, this.labelsLength) : 2;
         const value = !this.getDisplayInXS() ? Math.floor(12 / maxColumns) : 6;
         return `col-${index < this.maxLines ? 12 : 0} col-sm-${value * columns} q-ml-none q-pl-sm`;
@@ -54,42 +54,34 @@ let WGOExpanded = class WGOExpanded extends vue_property_decorator_1.Vue {
 (0, tslib_1.__decorate)([
     (0, vue_property_decorator_1.Prop)(),
     (0, tslib_1.__metadata)("design:type", String)
-], WGOExpanded.prototype, "label", void 0);
+], WGOListItem.prototype, "label", void 0);
 (0, tslib_1.__decorate)([
     (0, vue_property_decorator_1.Prop)(),
     (0, tslib_1.__metadata)("design:type", Array)
-], WGOExpanded.prototype, "labels", void 0);
+], WGOListItem.prototype, "labels", void 0);
 (0, tslib_1.__decorate)([
     (0, vue_property_decorator_1.Prop)(),
     (0, tslib_1.__metadata)("design:type", String)
-], WGOExpanded.prototype, "icon", void 0);
+], WGOListItem.prototype, "icon", void 0);
 (0, tslib_1.__decorate)([
     (0, vue_property_decorator_1.Prop)(),
     (0, tslib_1.__metadata)("design:type", String)
-], WGOExpanded.prototype, "group", void 0);
-(0, tslib_1.__decorate)([
-    (0, vue_property_decorator_1.Prop)(),
-    (0, tslib_1.__metadata)("design:type", String)
-], WGOExpanded.prototype, "iconUrl", void 0);
+], WGOListItem.prototype, "iconUrl", void 0);
 (0, tslib_1.__decorate)([
     (0, vue_property_decorator_1.Prop)({ default: 4 }),
     (0, tslib_1.__metadata)("design:type", Number)
-], WGOExpanded.prototype, "maxLabels", void 0);
+], WGOListItem.prototype, "maxLabels", void 0);
 (0, tslib_1.__decorate)([
     (0, vue_property_decorator_1.Prop)({ default: 2 }),
     (0, tslib_1.__metadata)("design:type", Number)
-], WGOExpanded.prototype, "maxLines", void 0);
+], WGOListItem.prototype, "maxLines", void 0);
 (0, tslib_1.__decorate)([
     (0, vue_property_decorator_1.Watch)('labels'),
     (0, tslib_1.__metadata)("design:type", Function),
     (0, tslib_1.__metadata)("design:paramtypes", []),
     (0, tslib_1.__metadata)("design:returntype", void 0)
-], WGOExpanded.prototype, "setLabelsLength", null);
-WGOExpanded = (0, tslib_1.__decorate)([
-    (0, vue_property_decorator_1.Component)({
-        components: {
-            WGOSimpleExpanded: WGOSimpleExpanded_vue_1.default,
-        },
-    })
-], WGOExpanded);
-exports.default = WGOExpanded;
+], WGOListItem.prototype, "setLabelsLength", null);
+WGOListItem = (0, tslib_1.__decorate)([
+    (0, vue_property_decorator_1.Component)({})
+], WGOListItem);
+exports.default = WGOListItem;

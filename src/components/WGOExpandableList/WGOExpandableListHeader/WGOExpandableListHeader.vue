@@ -50,6 +50,9 @@
     <div class="row justify-end">
       <slot name="headerButtons"> </slot>
     </div>
+    <div>
+      <slot name="headerList"></slot>
+    </div>
   </q-card-section>
 </template>
 

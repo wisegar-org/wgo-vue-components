@@ -19,6 +19,8 @@ const WGOExpandableList_vue_1 = (0, tslib_1.__importDefault)(require("../compone
 const WGOExpandableListCard_vue_1 = (0, tslib_1.__importDefault)(require("../components/WGOExpandableList/WGOExpandableListCard.vue"));
 const WGOExpandableListHeader_vue_1 = (0, tslib_1.__importDefault)(require("../components/WGOExpandableList/WGOExpandableListHeader/WGOExpandableListHeader.vue"));
 const WGOExpandableListFilterLabel_vue_1 = (0, tslib_1.__importDefault)(require("../components/WGOExpandableList/WGOExpandableListFilter/WGOExpandableListFilterLabel.vue"));
+const WGOList_vue_1 = (0, tslib_1.__importDefault)(require("../components/WGOList/WGOList.vue"));
+const WGOListSimple_vue_1 = (0, tslib_1.__importDefault)(require("../components/WGOList/WGOListSimple.vue"));
 // we globally register our component with Vue
 exports.default = ({ app }) => {
     vue_1.default.component("my-button", MyButton_vue_1.default);
@@ -37,4 +39,6 @@ exports.default = ({ app }) => {
     vue_1.default.component("wgo-exp-list-card", WGOExpandableListCard_vue_1.default);
     vue_1.default.component("wgo-exp-list-header", WGOExpandableListHeader_vue_1.default);
     vue_1.default.component("wgo-exp-list-filter-lab", WGOExpandableListFilterLabel_vue_1.default);
+    vue_1.default.component("wgo-list", WGOList_vue_1.default);
+    vue_1.default.component("wgo-list-simple", WGOListSimple_vue_1.default);
 };

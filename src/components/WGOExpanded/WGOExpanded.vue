@@ -1,10 +1,5 @@
 <template>
-  <WGOSimpleExpanded
-    ref="expanded"
-    :group="group"
-    :expandIcon="true"
-    :switchToggle="!isMobile()"
-  >
+  <WGOSimpleExpanded ref="expanded" :group="group" :expandIcon="true" :switchToggle="!isMobile()">
     <template slot="header">
       <q-item-section
         v-if="getIcon() && !getDisplayInXS()"
@@ -19,22 +14,13 @@
         <q-item-section
           v-if="!labels || !labels.length"
           class="self-center cursor-pointer q-py-sm"
-          style="
-            text-overflow: ellipsis;
-            overflow: hidden;
-            display: block;
-            white-space: nowrap;
-          "
+          style="text-overflow: ellipsis; overflow: hidden; display: block; white-space: nowrap"
           @click="clickInHeader"
         >
           {{ label }}
         </q-item-section>
-        <q-item-section
-          v-else
-          class="cursor-pointer q-pl-none"
-          @click="clickInHeader"
-        >
-          <div class="row q-pl-none full-width">
+        <q-item-section v-else class="cursor-pointer q-pl-none" @click="clickInHeader">
+          <div class="row q-pl-none full-width" :style="getJustify()">
             <template v-for="(item, index) of labels">
               <q-item-section
                 :key="item + index"
@@ -43,19 +29,10 @@
               >
                 <div
                   class="q-pl-none full-width"
-                  style="
-                    text-overflow: ellipsis;
-                    overflow: hidden;
-                    display: block;
-                    white-space: nowrap;
-                  "
+                  style="text-overflow: ellipsis; overflow: hidden; display: block; white-space: nowrap"
                 >
                   {{ isStringLabel(item) ? item : item.label }}
-                  <q-tooltip
-                    anchor="bottom start"
-                    self="center start"
-                    v-if="!isStringLabel(item) && item.tooltip"
-                  >
+                  <q-tooltip anchor="bottom start" self="center start" v-if="!isStringLabel(item) && item.tooltip">
                     {{ item.tooltip }}
                   </q-tooltip>
                 </div>

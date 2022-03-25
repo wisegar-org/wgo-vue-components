@@ -10,12 +10,12 @@ let WGOSimpleExpanded = class WGOSimpleExpanded extends vue_property_decorator_1
         super();
         this.showPopup = false;
         this.labelsLength = (this.labels || [])
-            .map(label => (typeof label === 'string' ? 1 : label.columns || 1))
+            .map((label) => (typeof label === 'string' ? 1 : label.columns || 1))
             .reduce((a, b) => a + b, 0);
     }
     setLabelsLength() {
         this.labelsLength = this.labels
-            .map(label => (typeof label === 'string' ? 1 : label.columns || 1))
+            .map((label) => (typeof label === 'string' ? 1 : label.columns || 1))
             .reduce((a, b) => a + b, 0);
     }
     getIcon() {
@@ -32,18 +32,13 @@ let WGOSimpleExpanded = class WGOSimpleExpanded extends vue_property_decorator_1
         if (this.labels.length === 1) {
             return 'col-12 col-sm-12 q-ml-none q-pl-sm';
         }
-        const maxColumns = this.getDisplayInSM()
-            ? Math.min(this.maxLabels, this.labelsLength)
-            : 2;
-        const value = !this.getDisplayInXS() ? 12 / maxColumns : 6;
-        return `col-${index < this.maxLines ? 12 : 0} col-sm-${value *
-            columns} q-ml-none q-pl-sm`;
+        const maxColumns = this.getDisplayInSM() ? Math.min(this.maxLabels, this.labelsLength) : 2;
+        const value = !this.getDisplayInXS() ? Math.floor(12 / maxColumns) : 6;
+        return `col-${index < this.maxLines ? 12 : 0} col-sm-${value * columns} q-ml-none q-pl-sm`;
     }
     getLabelsStyle(index) {
         const isOnlySM = !this.getDisplayInSM();
-        return index >= this.maxLines && isOnlySM
-            ? 'display: none;'
-            : 'margin-left: 0 !important;';
+        return index >= this.maxLines && isOnlySM ? 'display: none;' : 'margin-left: 0 !important;';
     }
     isStringLabel(label) {
         return typeof label === 'string';
@@ -53,6 +48,9 @@ let WGOSimpleExpanded = class WGOSimpleExpanded extends vue_property_decorator_1
     }
     getDisplayInSM() {
         return this.$q.screen.gt.sm;
+    }
+    getJustify() {
+        return this.labelsLength <= this.maxLabels ? 'justify-content: space-between' : '';
     }
 };
 (0, tslib_1.__decorate)([
