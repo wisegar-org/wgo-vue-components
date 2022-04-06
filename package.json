@@ -43,5 +43,7 @@
     "vue-signature-pad": "2.0.0",
     "vuex-class": "^0.3.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@wisegar-org/wgo-object-extensions": "0.0.1-build.7"
+  }
 }

@@ -1,4 +1,4 @@
-import { IsNullOrUndefined } from "@wisegar-org/wgo-opengar-shared";
+import { IsNullOrUndefined } from "@wisegar-org/wgo-object-extensions";
 import {
   Vue,
   Component,
