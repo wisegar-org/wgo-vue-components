@@ -27,7 +27,6 @@
     "@quasar/app": "^2.2.10",
     "@types/file-saver": "^2.0.4",
     "@types/node": "^17.0.2",
-    "@wisegar-org/wgo-opengar-shared": "0.0.1-build.24",
     "exceljs": "^4.2.0",
     "file-saver": "^2.0.4",
     "fs-extra": "^10.0.0",
@@ -43,5 +42,8 @@
     "vue-signature-pad": "2.0.0",
     "vuex-class": "^0.3.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@wisegar-org/wgo-object-extensions": "0.0.1-build.7",
+    "@wisegar-org/wgo-opengar-shared": "0.0.1-build.28"
+  }
 }

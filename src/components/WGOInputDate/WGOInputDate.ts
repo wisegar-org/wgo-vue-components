@@ -16,12 +16,12 @@ import {
   MASK_DD_MM_YYYY,
   MASK_GENERIC,
   MASK_YYYY_MM_DD,
-} from "@wisegar-org/wgo-opengar-shared";
+} from "@wisegar-org/wgo-object-extensions";
 import {
   GetStringDate,
   IsNullOrUndefined,
   IsStringEmptyNullOrUndefined,
-} from "@wisegar-org/wgo-opengar-shared";
+} from "@wisegar-org/wgo-object-extensions";
 import moment from "moment";
 // declare module "vue/types/vue" {
 //   interface Vue {
