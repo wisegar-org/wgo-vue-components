@@ -1,4 +1,4 @@
-import { IsNullOrUndefined } from "@wisegar-org/wgo-object-extensions";
+import { IsNullOrUndefined } from "wgo-extensions";
 import {
   Prop,
   Model,

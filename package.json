@@ -1,15 +1,14 @@
 {
-  "name": "@wisegar-org/quasar-app-extension-wgo-vue-components",
+  "name": "quasar-app-extension-wgo-vue-components",
   "version": "0.0.1-45",
   "description": "A Quasar App Extension",
-  "author": "Yariel Rodriguez <info@wisegar.org>",
+  "author": "Wisegar Develpment Group <info@wisegar.org>",
   "license": "MIT",
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon",
     "clean": "node ./scripts/build.js",
     "version": "node ./scripts/build.js && tsc",
-    "publicate": "npm version prerelease && npm publish",
     "test": "echo \"No test specified\" && exit 0"
   },
   "repository": {
@@ -43,7 +42,6 @@
     "vuex-class": "^0.3.2"
   },
   "dependencies": {
-    "@wisegar-org/wgo-object-extensions": "0.0.1-build.7",
-    "@wisegar-org/wgo-opengar-shared": "0.0.1-build.28"
+    "wgo-extensions": "^0.0.4"
   }
 }

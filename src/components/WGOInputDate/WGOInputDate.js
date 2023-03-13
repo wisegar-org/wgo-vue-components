@@ -4,8 +4,8 @@ const tslib_1 = require("tslib");
 const vue_class_component_1 = (0, tslib_1.__importDefault)(require("vue-class-component"));
 const vue_property_decorator_1 = require("vue-property-decorator");
 const quasar_1 = require("quasar");
-const wgo_object_extensions_1 = require("@wisegar-org/wgo-object-extensions");
-const wgo_object_extensions_2 = require("@wisegar-org/wgo-object-extensions");
+const wgo_extensions_1 = require("wgo-extensions");
+const wgo_extensions_2 = require("wgo-extensions");
 const moment_1 = (0, tslib_1.__importDefault)(require("moment"));
 // declare module "vue/types/vue" {
 //   interface Vue {
@@ -55,10 +55,10 @@ class WGOInputDate extends vue_property_decorator_1.Vue {
         return (_a = this.options) === null || _a === void 0 ? void 0 : _a.readonly;
     }
     get inputMask() {
-        return wgo_object_extensions_1.MASK_GENERIC;
+        return wgo_extensions_1.MASK_GENERIC;
     }
     get qDateMask() {
-        return wgo_object_extensions_1.MASK_DD_MM_YYYY;
+        return wgo_extensions_1.MASK_DD_MM_YYYY;
     }
     get getRules() {
         var _a, _b, _c, _d;
@@ -72,20 +72,20 @@ class WGOInputDate extends vue_property_decorator_1.Vue {
     }
     mounted() {
         console.debug("WGOInputDate mounted: ", this.label, this.date, this.options);
-        this.model = (0, wgo_object_extensions_1.GetMaskedDate)(this.date || "", this.qDateMask);
+        this.model = (0, wgo_extensions_1.GetMaskedDate)(this.date || "", this.qDateMask);
     }
     onSelectionChange() {
         var _a;
         console.debug("WGOInputDate onSelectedDate : ", this.label, this.model);
         this.$refs.qDateProxy.hide();
-        if ((0, wgo_object_extensions_1.IsGenericMaskEmpty)(this.model))
+        if ((0, wgo_extensions_1.IsGenericMaskEmpty)(this.model))
             return;
-        const numbersCount = (0, wgo_object_extensions_1.GetNumbersFromString)(this.model);
+        const numbersCount = (0, wgo_extensions_1.GetNumbersFromString)(this.model);
         if (numbersCount.length < 8) {
             return false;
         }
         (_a = this.$refs.input) === null || _a === void 0 ? void 0 : _a.validate();
-        const newSelectedDate = (0, wgo_object_extensions_1.GetDate)(this.model, this.qDateMask);
+        const newSelectedDate = (0, wgo_extensions_1.GetDate)(this.model, this.qDateMask);
         this.onChangeData(newSelectedDate);
     }
     /**
@@ -95,20 +95,20 @@ class WGOInputDate extends vue_property_decorator_1.Vue {
      */
     optionsFn(date) {
         console.debug("WGOInputDate optionsFn: ", this.label, date);
-        if ((0, wgo_object_extensions_2.IsNullOrUndefined)(date) ||
-            (0, wgo_object_extensions_2.IsNullOrUndefined)(this.minDate) ||
-            (0, wgo_object_extensions_2.IsNullOrUndefined)(this.maxDate))
+        if ((0, wgo_extensions_2.IsNullOrUndefined)(date) ||
+            (0, wgo_extensions_2.IsNullOrUndefined)(this.minDate) ||
+            (0, wgo_extensions_2.IsNullOrUndefined)(this.maxDate))
             return true;
-        const formattedDate = (0, wgo_object_extensions_1.GetMaskedDate)(date, wgo_object_extensions_1.MASK_YYYY_MM_DD);
-        const formattedMinDate = (0, wgo_object_extensions_1.GetMaskedDate)(this.minDate, wgo_object_extensions_1.MASK_YYYY_MM_DD, this.qDateMask);
-        const formattedMaxDate = (0, wgo_object_extensions_1.GetMaskedDate)(this.maxDate, wgo_object_extensions_1.MASK_YYYY_MM_DD, this.qDateMask);
+        const formattedDate = (0, wgo_extensions_1.GetMaskedDate)(date, wgo_extensions_1.MASK_YYYY_MM_DD);
+        const formattedMinDate = (0, wgo_extensions_1.GetMaskedDate)(this.minDate, wgo_extensions_1.MASK_YYYY_MM_DD, this.qDateMask);
+        const formattedMaxDate = (0, wgo_extensions_1.GetMaskedDate)(this.maxDate, wgo_extensions_1.MASK_YYYY_MM_DD, this.qDateMask);
         if (this.maxDate && !this.minDate)
-            return (0, wgo_object_extensions_1.IsDateBeforeOrEqual)(formattedDate, formattedMaxDate, wgo_object_extensions_1.MASK_YYYY_MM_DD);
+            return (0, wgo_extensions_1.IsDateBeforeOrEqual)(formattedDate, formattedMaxDate, wgo_extensions_1.MASK_YYYY_MM_DD);
         if (!this.maxDate && this.minDate)
-            return (0, wgo_object_extensions_1.IsDateAfterOrEqual)(formattedDate, formattedMinDate, wgo_object_extensions_1.MASK_YYYY_MM_DD);
+            return (0, wgo_extensions_1.IsDateAfterOrEqual)(formattedDate, formattedMinDate, wgo_extensions_1.MASK_YYYY_MM_DD);
         if (this.maxDate && this.minDate)
-            return ((0, wgo_object_extensions_1.IsDateAfterOrEqual)(formattedDate, formattedMinDate, wgo_object_extensions_1.MASK_YYYY_MM_DD) &&
-                (0, wgo_object_extensions_1.IsDateBeforeOrEqual)(formattedDate, formattedMaxDate, wgo_object_extensions_1.MASK_YYYY_MM_DD));
+            return ((0, wgo_extensions_1.IsDateAfterOrEqual)(formattedDate, formattedMinDate, wgo_extensions_1.MASK_YYYY_MM_DD) &&
+                (0, wgo_extensions_1.IsDateBeforeOrEqual)(formattedDate, formattedMaxDate, wgo_extensions_1.MASK_YYYY_MM_DD));
         return true;
     }
     onFocus() {
@@ -134,30 +134,30 @@ class WGOInputDate extends vue_property_decorator_1.Vue {
     campoObbligatorio(val) {
         console.debug("WGOInputDate campoObbligatorio: ", this.obbligatorio);
         return (!this.obbligatorio ||
-            (!(0, wgo_object_extensions_1.IsGenericMaskEmpty)(val) && !(0, wgo_object_extensions_2.IsStringEmptyNullOrUndefined)(val)) ||
+            (!(0, wgo_extensions_1.IsGenericMaskEmpty)(val) && !(0, wgo_extensions_2.IsStringEmptyNullOrUndefined)(val)) ||
             "Obbligatorio");
     }
     dataValida(val) {
         console.debug("WGOInputDate dataValida: ", this.model);
-        if ((0, wgo_object_extensions_1.IsGenericMaskEmpty)(val))
+        if ((0, wgo_extensions_1.IsGenericMaskEmpty)(val))
             return true;
-        return (0, wgo_object_extensions_1.IsDateValid)(val, wgo_object_extensions_1.MASK_DD_MM_YYYY) || this.$t("orionDate.wrongDate");
+        return (0, wgo_extensions_1.IsDateValid)(val, wgo_extensions_1.MASK_DD_MM_YYYY) || this.$t("orionDate.wrongDate");
     }
     limitiDate(val) {
         console.debug("WGOInputDate limitiDate: ", val);
-        if ((0, wgo_object_extensions_2.IsNullOrUndefined)(val) ||
-            (0, wgo_object_extensions_2.IsNullOrUndefined)(this.minDate) ||
-            (0, wgo_object_extensions_2.IsNullOrUndefined)(this.maxDate))
+        if ((0, wgo_extensions_2.IsNullOrUndefined)(val) ||
+            (0, wgo_extensions_2.IsNullOrUndefined)(this.minDate) ||
+            (0, wgo_extensions_2.IsNullOrUndefined)(this.maxDate))
             return true;
-        if ((0, wgo_object_extensions_1.IsGenericMaskEmpty)(val))
+        if ((0, wgo_extensions_1.IsGenericMaskEmpty)(val))
             return true;
-        if (!(0, wgo_object_extensions_1.IsDateValid)(val))
+        if (!(0, wgo_extensions_1.IsDateValid)(val))
             return false;
-        const formattedDate = (0, wgo_object_extensions_1.GetMaskedDate)(val, wgo_object_extensions_1.MASK_YYYY_MM_DD, this.qDateMask);
-        const formattedMinDate = (0, wgo_object_extensions_1.GetMaskedDate)(this.minDate, wgo_object_extensions_1.MASK_YYYY_MM_DD, this.qDateMask);
-        const formattedMaxDate = (0, wgo_object_extensions_1.GetMaskedDate)(this.maxDate, wgo_object_extensions_1.MASK_YYYY_MM_DD, this.qDateMask);
-        const errorMin = (0, wgo_object_extensions_1.IsDateBefore)(formattedDate, formattedMinDate, wgo_object_extensions_1.MASK_YYYY_MM_DD);
-        const errorMax = (0, wgo_object_extensions_1.IsDateAfter)(formattedDate, formattedMaxDate, wgo_object_extensions_1.MASK_YYYY_MM_DD);
+        const formattedDate = (0, wgo_extensions_1.GetMaskedDate)(val, wgo_extensions_1.MASK_YYYY_MM_DD, this.qDateMask);
+        const formattedMinDate = (0, wgo_extensions_1.GetMaskedDate)(this.minDate, wgo_extensions_1.MASK_YYYY_MM_DD, this.qDateMask);
+        const formattedMaxDate = (0, wgo_extensions_1.GetMaskedDate)(this.maxDate, wgo_extensions_1.MASK_YYYY_MM_DD, this.qDateMask);
+        const errorMin = (0, wgo_extensions_1.IsDateBefore)(formattedDate, formattedMinDate, wgo_extensions_1.MASK_YYYY_MM_DD);
+        const errorMax = (0, wgo_extensions_1.IsDateAfter)(formattedDate, formattedMaxDate, wgo_extensions_1.MASK_YYYY_MM_DD);
         let msg = "";
         if (errorMin || errorMax) {
             if (this.maxDate && this.minDate)

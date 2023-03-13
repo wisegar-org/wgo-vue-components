@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const wgo_object_extensions_1 = require("@wisegar-org/wgo-object-extensions");
+const wgo_extensions_1 = require("wgo-extensions");
 const vue_property_decorator_1 = require("vue-property-decorator");
 const DefaultOptions = {
     small: true,
@@ -46,7 +46,7 @@ let WGOInputNumber = class WGOInputNumber extends vue_property_decorator_1.Vue {
     }
     get clearOption() {
         var _a, _b;
-        return !(0, wgo_object_extensions_1.IsNullOrUndefined)((_a = this.options) === null || _a === void 0 ? void 0 : _a.clearable)
+        return !(0, wgo_extensions_1.IsNullOrUndefined)((_a = this.options) === null || _a === void 0 ? void 0 : _a.clearable)
             ? (_b = this.options) === null || _b === void 0 ? void 0 : _b.clearable
             : true;
     }

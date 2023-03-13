@@ -6,7 +6,7 @@ const WGOInputDate_vue_1 = (0, tslib_1.__importDefault)(require("../../WGOInputD
 const WGOInputText_vue_1 = (0, tslib_1.__importDefault)(require("../../WGOInputText/WGOInputText.vue"));
 const WGOInputNumber_vue_1 = (0, tslib_1.__importDefault)(require("../../WGOInputNumber/WGOInputNumber.vue"));
 const WGOInputSelect_vue_1 = (0, tslib_1.__importDefault)(require("../../WGOInputSelect/WGOInputSelect.vue"));
-const wgo_object_extensions_1 = require("@wisegar-org/wgo-object-extensions");
+const wgo_extensions_1 = require("wgo-extensions");
 let WGOExpandableListEditor = class WGOExpandableListEditor extends vue_property_decorator_1.Vue {
     constructor() {
         super();
@@ -44,7 +44,7 @@ let WGOExpandableListEditor = class WGOExpandableListEditor extends vue_property
     }
     getDateValue(date) {
         const dateObj = new Date(date).toISOString();
-        const maskDate = (0, wgo_object_extensions_1.GetMaskedDate)(dateObj, wgo_object_extensions_1.MASK_DD_MM_YYYY, wgo_object_extensions_1.MASK_YYYY_MM_DD_HH_mm_ss);
+        const maskDate = (0, wgo_extensions_1.GetMaskedDate)(dateObj, wgo_extensions_1.MASK_DD_MM_YYYY, wgo_extensions_1.MASK_YYYY_MM_DD_HH_mm_ss);
         return maskDate;
     }
 };

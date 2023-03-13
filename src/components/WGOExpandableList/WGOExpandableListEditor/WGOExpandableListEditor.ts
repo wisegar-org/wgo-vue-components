@@ -9,7 +9,7 @@ import {
   GetMaskedDate,
   MASK_YYYY_MM_DD_HH_mm_ss,
   MASK_DD_MM_YYYY,
-} from "@wisegar-org/wgo-object-extensions";
+} from "wgo-extensions";
 import { IWGOInputDateOptions } from "../../../models/IWGOInputDateOptions";
 
 @Component({
